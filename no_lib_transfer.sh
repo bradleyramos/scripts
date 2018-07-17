@@ -21,7 +21,7 @@ destination=/Users/admin/Desktop/Transfer
 if [ -z "$1" ]; then
     echo ""
     echo "You probably want to use sudo, e.g: sudo sh transfer.sh. If you didn't, hit Ctrl + C to cancel."
-    echo "Files will be placed in /Users/admin/Desktop/Transfer (even if none of this path is defined yet)"
+    echo "Files will be placed in /Users/admin/Desktop/Transfer or the destination set in code (you can set this)"
     echo "Needs a full file path, such as /Volumes/Macintosh\ HD\ 1/Users/and314"
     echo "You must escape spaces: [\ ] instead of [ ]."
     echo "DO NOT TRY TO USE THIS WITH /Users/admin/* (Unlikely that you would be so dumb)"
