@@ -7,7 +7,7 @@
 echo "Do you wish to see a list of valid models and their names?"
 read -p "BEWARE, this list is long (y/n): " yesno
 echo "---------------------------------------------------------------------------------"
-if ["$yesno" == "y"]
+if ["$yesno" == "y"]; then
 	sh valid_drivers.sh
 fi
 
