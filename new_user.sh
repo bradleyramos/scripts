@@ -1,7 +1,7 @@
 #!/bin/bash
 #Usage: sudo sh new_user.sh
 #Creates a new user, prompted on command line. 
-#Alternate usage: sudo su new_user.sh [fullname] [username] [uid] [password]
+#Alternate usage: sudo sh new_user.sh [fullname] [username] [uid] [password]
 
 if [ -z "$1" ]; then
 	echo "Define a full name, can be pretty long (30 characters)"
