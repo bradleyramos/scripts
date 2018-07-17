@@ -32,6 +32,10 @@ for dir in "$fileLoc/"*; do
     fi
 done
 
-read -p "Intended owner username (or Ctrl + C to skip): " fUser
+if [-z "$2" ]; then
+    read -p "Intended owner username (or Ctrl + C to skip): " fUser
+else
+    fUser=$2
+fi
 
 chown -R $fUser "$destination"
