@@ -4,7 +4,12 @@
 #Installs a single printer whose model is already downloaded into witmac. Beware that model must 
 #exactly match the name of the driver. Will ask you for the admin password twice (lol).
 
-
+echo "Do you wish to see a list of valid models and their names?"
+read -p "BEWARE, this list is long (y/n): " yesno
+echo "---------------------------------------------------------------------------------"
+if ["$yesno" == "y"]
+	sh valid_drivers.sh
+fi
 
 read -p "Name the printer (no spaces): " name
 read -p "IP address of printer: " ipAdd
