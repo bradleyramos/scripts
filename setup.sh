@@ -24,8 +24,8 @@ else
 	changeme=$4
 fi
 
-sh new_user.sh $fullname $username $uid $changeme
+sh new_user.sh "$fullname" "$username" "$uid" "$changeme"
 echo "User account created----------------------------------------"
-sh no_lib_transfer.sh /Users/$username $username
+sh no_lib_transfer.sh /Users/"$username" "$username"
 echo "Data Transferred---------------------------------------------"
 sh install_printer.sh
