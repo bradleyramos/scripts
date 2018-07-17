@@ -34,7 +34,7 @@ dscl . -create /Users/$username gid 20
 #Set full name
 dscl . -create /Users/$username realname "$fullname"
 #Set home directory
-dscl . -create /Users/$username NFSHomeDirectory /Local/Users/$username
+dscl . -create /Users/$username NFSHomeDirectory /Users/$username
 #Set password
 dscl . -passwd /Users/$username $changeme
 #Elevate to admin
