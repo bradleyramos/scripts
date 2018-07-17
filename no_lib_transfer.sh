@@ -5,14 +5,18 @@
 #Files will be put on the desktop of the admin account in a folder called Transfer
 #
 #Changelog:
-#7/10:  Fixed bug with (top-level) folders with name containing Library
+#7/10:
+#	Fixed bug with (top-level) folders with name containing Library
 #	Preserves attributes (ALL ATTRIBUTES, like permissions and timestamps)
 #	Echos current (top-level) directory to track progress
-#       Prompts to set owner after transfer is done to satisfy complainers
+#   Prompts to set owner after transfer is done to satisfy complainers
+#7/17:
+#	Created destination variable to easily customize destination location	
 
-
-
-
+#This variable sets the destination of the files to be transferred
+#and can be edited to be any path of your choosing (use sudo though).
+#Note that you will have to use no spaces when you edit this (e.g. /Volumes/Macintosh\ HD\ 1/Users/and314).
+destination=/Users/admin/Desktop/Transfer
 
 if [ -z "$1" ]; then
     echo ""
@@ -26,15 +30,15 @@ else
     fileLoc=$1
 fi
 
-mkdir -m777 -p /Users/admin/Desktop/Transfer
+mkdir -m777 -p "$destination"
 
 for dir in "$fileLoc/"*; do
     if [[ "$dir" != *"/Library" ]]; then
 	echo $dir
-	cp -rp "$dir" /Users/admin/Desktop/Transfer
+	cp -rp "$dir" "$destination"
     fi
 done
 
 read -p "Intended owner username (or Ctrl + C to skip): " fUser
 
-chown -R $fUser /Users/admin/Desktop/Transfer
+chown -R $fUser "$destination"
