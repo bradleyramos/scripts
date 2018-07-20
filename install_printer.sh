@@ -13,6 +13,7 @@ fi
 
 read -p "Name the printer (no spaces): " name
 read -p "IP address of printer: " ipAdd
+#Why is there -r here? I have no idea
 read -r -p "Model of printer (name of driver, e.g. RICOH MP C6004): " model
 echo "Downloading driver, Input admin password"
 sftp admin@129.105.3.7:/Library/Printers/PPDs/Contents/Resources/\""$model"\" /Library/Printers/PPDs/Contents/Resources/\""$model"\"

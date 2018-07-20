@@ -7,8 +7,8 @@ RESET='\033[0m'
 
 if [ -z "$1" ]; then
 	read -p "$(echo "Define a full name, can be pretty long (30 characters) \nType the user's full name, (e.g. John Wu): ")" fullname
-	read -p "$(echo "Username: No special characters or spaces alowed. Keep it short.\nType the username (e.g. wurules): ")" username
-	read -p "$(echo "Select a user ID. This is a UNIQUE number between 503 and 1000\nMac sets the first account (admin) 501, second (jamfadmin) 502, etc.\ngroup id is 20, btw. No questions please, but you can change it in the code.\nType the user ID (Unique, 503-1000): ")" uid
+	read -p "$(echo "Define a Username: No special characters or spaces alowed.\nType the username (e.g. wurules): ")" username
+	read -p "$(echo "Select a user ID. This is a UNIQUE number between 503 and 1000\nMac sets the first account (admin) 501, second (jamfadmin) 502, etc.\nType the user ID (Unique, 503-1000): ")" uid
 	read -p "$(echo "Set the password. In plain text, so use change,me\nType the password (plain text, e.g. change,me): ")" changeme
 else
 	fullname=$1
