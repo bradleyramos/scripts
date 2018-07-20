@@ -3,4 +3,4 @@ Update help documentation
 Reduce total number of echoes (Done)
 Allow for more than 1 printer to be added (Done)
 Change setup.sh to fully use only other commands (Done)
-Full help echoes not available from setup.sh's running of new_user.sh (Done)
+Full help echoes not available from setup.sh's running of new_user.sh (Fixed)
