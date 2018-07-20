@@ -1,5 +1,5 @@
 Change colors to make actual prompts stand out a bit
 Update help documentation
-Reduce total number of echoes
-Allow for more than 1 printer to be added
-Change setup.sh to fully use only other commands
+Reduce total number of echoes (Done)
+Allow for more than 1 printer to be added (Done)
+Change setup.sh to fully use only other commands (Done)
