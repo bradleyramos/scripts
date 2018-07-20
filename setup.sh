@@ -5,6 +5,9 @@
 #so download the whole bloody thing.
 #Alternate usage: sudo sh setup.sh [fullname] [username] [uid] [password]
 
+RED='\033[0;31m'
+RESET='\033[0m'
+
 if [ -z "$1" ]; then
 	username="$(sh new_user.sh|tail -n 1)"
 else
@@ -16,10 +19,9 @@ else
 	sh new_user.sh "$fullname" "$username" "$uid" "$changeme"
 fi
 
-
-echo "User account created----------------------------------------"
+echo -e "${RED}User account created----------------------------------------${RESET}"
 sh no_lib_transfer.sh /Users/"$username" "$username"
-echo "Data Transferred---------------------------------------------"
+echo -e "${RED}Data Transferred---------------------------------------------${RESET}"
 i=1
 while [[ i=1 ]]; do
 	sh install_printer.sh
