@@ -19,9 +19,9 @@ else
 	sh new_user.sh "$fullname" "$username" "$uid" "$changeme"
 fi
 
-echo -e "${RED}User account created----------------------------------------${RESET}"
+echo ${RED}"User account created----------------------------------------"${RESET}
 sh no_lib_transfer.sh /Users/"$username" "$username"
-echo -e "${RED}Data Transferred---------------------------------------------${RESET}"
+echo ${RED}"Data Transferred---------------------------------------------"${RESET}
 i=1
 while [[ i=1 ]]; do
 	sh install_printer.sh
