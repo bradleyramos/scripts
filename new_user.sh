@@ -11,7 +11,7 @@ if [ -z "$1" ]; then
 	echo "Select a user ID. This is a UNIQUE number between 502 and 1000"
 	echo "Normally, Mac makes the first account (admin) 501, the second 502, etc."
 #	echo "group id is 20, btw. No questions please, but you can change it in the code."
-	read -p "Type the user ID: " uid
+	read -p "Type the user ID (Unique, 502-1000): " uid
 	echo "Set the password. In plain text, so use change,me"
 	read -p "Type the password: " changeme
 else
@@ -38,4 +38,4 @@ dscl . -passwd /Users/$username $changeme
 #Elevate to admin
 dscl . -append /Groups/admin GroupMembership $username
 
-echo "Created User: $username"
+echo "$username"
