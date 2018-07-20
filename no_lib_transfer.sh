@@ -19,7 +19,7 @@ echo ""
 echo "Files will be placed in $1 (this is the first argument or default)"
 echo "Needs a full file path, such as /Volumes/Macintosh\ HD\ 1/Users/and314"
 echo "You must escape spaces: [\ ] instead of [ ]."
-read -p "Type the file path: " fileLoc
+read -p "Type the source file path: " fileLoc
 
 mkdir -m777 -p "$destination"
 
