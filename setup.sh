@@ -1,7 +1,8 @@
 #!/bin/bash
 #Usage: sudo sh setup.sh
 #Creates a new user, transfers to that user, and installs printers.
-#This file is dependent on all the other files in scripts, so download the whole bloody thing.
+#This file is dependent on all the other files in scripts,
+#so download the whole bloody thing.
 #Alternate usage: sudo sh setup.sh [fullname] [username] [uid] [password]
 
 if [ -z "$1" ]; then

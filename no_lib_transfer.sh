@@ -16,11 +16,9 @@ else
 fi
 
 echo ""
-echo "You probably want to use sudo, e.g: sudo sh transfer.sh. If you didn't, hit Ctrl + C to cancel."
-echo "Files will be placed in /Users/admin/Desktop/Transfer or the destination set in code (you can set this)"
+echo "Files will be placed in $1 (this is the first argument or default)"
 echo "Needs a full file path, such as /Volumes/Macintosh\ HD\ 1/Users/and314"
 echo "You must escape spaces: [\ ] instead of [ ]."
-echo "DO NOT TRY TO USE THIS WITH /Users/admin/* (Unlikely that you would be so dumb)"
 read -p "Type the file path: " fileLoc
 
 mkdir -m777 -p "$destination"
