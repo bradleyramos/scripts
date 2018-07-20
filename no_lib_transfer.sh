@@ -32,7 +32,7 @@ for dir in "$fileLoc/"*; do
     fi
 done
 
-if [-z "$2" ]; then
+if [ -z "$2" ]; then
     read -p "Intended owner username (or Ctrl + C to skip): " fUser
 else
     fUser=$2
