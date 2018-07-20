@@ -13,7 +13,7 @@ if [ -z "$1" ]; then
 #	echo "group id is 20, btw. No questions please, but you can change it in the code."
 	read -p "Type the user ID (Unique, 502-1000): " uid
 	echo "Set the password. In plain text, so use change,me"
-	read -p "Type the password: " changeme
+	read -p "Type the password (plain text, e.g. change,me): " changeme
 else
 	fullname=$1
 	username=$2
