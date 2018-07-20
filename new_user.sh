@@ -1,6 +1,6 @@
 #!/bin/bash
 #Usage: sudo sh new_user.sh
-#Creates a new user, prompted on command line. 
+#Creates a new user, prompted on command line.
 #Alternate usage: sudo sh new_user.sh [fullname] [username] [uid] [password]
 
 if [ -z "$1" ]; then
@@ -39,3 +39,5 @@ dscl . -create /Users/$username NFSHomeDirectory /Users/$username
 dscl . -passwd /Users/$username $changeme
 #Elevate to admin
 dscl . -append /Groups/admin GroupMembership $username
+
+echo "Created User: $username"
