@@ -23,11 +23,15 @@ echo ${RED}"User account created----------------------------------------"${RESET
 sh no_lib_transfer.sh /Users/"$username" "$username"
 echo ${RED}"Data Transferred---------------------------------------------"${RESET}
 i=1
-while [[ i=1 ]]; do
+
+
+# What's wrong here? who knows
+noyes='y'
+while [ "$noyes" = "y" ]; do
 	sh install_printer.sh
-	read -p "Add another printer? (y/n): " yesno
-	if [ "$yesno" != "y" ]; then
-		i=0
+	read -p "Add another printer? (y/n): " no
+	echo $no
+	if [ "$no" == "n" ]; then
+		break
 	fi
 done
-sh install_printer.sh
