@@ -5,7 +5,7 @@
 #Example: sh scanall.sh 129.105.3
 #List all static IPs and DHCP with the form 129.105.3.xxx
 
-if [ -z "$1" ] 
+if [ -z "$1" ]
     then
         read -p "Enter subnet (e.g. 129.105.3): " subnet
     else
