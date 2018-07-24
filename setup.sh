@@ -3,7 +3,8 @@
 #Creates a new user, transfers to that user, and installs printers.
 #This file is dependent on all the other files in scripts,
 #so download the whole bloody thing.
-#Alternate usage: sudo sh setup.sh [fullname] [username] [uid] [password]
+#Alternate usage: sudo sh setup.sh [fullname] [username] [uid] [password] [source]
+
 
 RED='\033[0;31m'
 RESET='\033[0m'
@@ -15,12 +16,14 @@ else
 	username=$2
 	uid=$3
 	changeme=$4
+	fileLoc=$5
+	echo "Executing promode"
 
 	sh new_user.sh "$fullname" "$username" "$uid" "$changeme"
 fi
 
 echo ${RED}"User account created----------------------------------------"${RESET}
-sh no_lib_transfer.sh /Users/"$username" "$username"
+sh no_lib_transfer.sh /Users/"$username" "$username" "$fileLoc"
 echo ${RED}"Data Transferred---------------------------------------------"${RESET}
 i=1
 
