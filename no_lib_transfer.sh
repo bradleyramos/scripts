@@ -8,7 +8,8 @@
 #and can be edited to be any path of your choosing (use sudo though).
 #Note that you will have to use no spaces when you edit this (e.g. /Volumes/Macintosh\ HD\ 1/Users/and314).
 
-
+#The credentials at the very end it wants are the admin password and the user
+#password set just prior.
 
 if [ -z "$3" ]; then
   echo ""
