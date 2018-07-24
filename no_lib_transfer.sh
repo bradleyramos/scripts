@@ -1,5 +1,5 @@
 #!/bin/bash
-#Usage: sh no_lib_transfer.sh [destination directory]
+#Usage: sh no_lib_transfer.sh [destination directory] [username] [source directory]
 #Use sudo sh no_lib_transfer.sh in most cases
 #[destination directory] - optional, transfers non-library files to selected directory.
 #Files will be put on the desktop of the admin account in a folder called Transfer
@@ -9,18 +9,23 @@
 #Note that you will have to use no spaces when you edit this (e.g. /Volumes/Macintosh\ HD\ 1/Users/and314).
 
 
-if [ -z "$1" ]; then
-    destination=/Users/admin/Desktop/Transfer
+
+if [-z "$3"]; then
+  echo ""
+  echo "Files will be placed in $destination (this is the first argument or default)"
+  echo "Needs a full file path, such as /Volumes/Macintosh\ HD\ 1/Users/and314"
+  echo "You must escape spaces: [\ ] instead of [ ]."
+  echo "No Library files transferred except Firefox, Chrome, and Safari profiles"
+  read -p "Type the source file path: " fileLoc
 else
-    destination=$1
+  fileLoc=$3
 fi
 
-echo ""
-echo "Files will be placed in $destination (this is the first argument or default)"
-echo "Needs a full file path, such as /Volumes/Macintosh\ HD\ 1/Users/and314"
-echo "You must escape spaces: [\ ] instead of [ ]."
-echo "No Library files transferred except Firefox, Chrome, and Safari profiles"
-read -p "Type the source file path: " fileLoc
+if [ -z "$1" ]; then
+  read -p "Type the destination file path" destination
+else
+  destination=$1
+fi
 
 mkdir -m777 -p "$destination"
 
