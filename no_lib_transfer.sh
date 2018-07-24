@@ -10,7 +10,7 @@
 
 
 
-if [-z "$3"]; then
+if [ -z "$3" ]; then
   echo ""
   echo "Files will be placed in $destination (this is the first argument or default)"
   echo "Needs a full file path, such as /Volumes/Macintosh\ HD\ 1/Users/and314"

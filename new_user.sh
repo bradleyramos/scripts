@@ -35,5 +35,7 @@ dscl . -passwd /Users/$username $changeme
 dscl . -append /Groups/admin GroupMembership $username
 
 #Allows user to unlock by filevault
-echo "Type in the admin password, then the password set above"
 fdesetup add -usertoadd $username
+
+#Final output for setup.sh
+echo "$username"
