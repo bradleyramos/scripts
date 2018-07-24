@@ -1,6 +1,6 @@
-Change colors to make actual prompts stand out a bit (Done)
-Update help documentation
-Reduce total number of echoes (Done)
-Allow for more than 1 printer to be added (Done)
-Change setup.sh to fully use only other commands (Done)
-Full help echoes not available from setup.sh's running of new_user.sh (Fixed)
+setup.sh
+  Add support for profiles in Safari, Chrome, Firefox
+  Add option not to install printers
+  Make all input front loaded.
+  Allow "pro mode" with no prompts
+  Implement sounds
