@@ -1,6 +1,6 @@
 setup.sh
-  Add support for profiles in Safari, Chrome, Firefox
-  Add option not to install printers
-  Make all input front loaded.
-  Allow "pro mode" with no prompts
+  Add support for profiles in Safari, Chrome, Firefox (Done)
+  Add option not to install printers (Done)
+  Allow "pro mode" with no help echoes
+    Make all input front loaded in pro mode.
   Implement sounds
