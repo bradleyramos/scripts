@@ -19,6 +19,7 @@ echo ""
 echo "Files will be placed in $1 (this is the first argument or default)"
 echo "Needs a full file path, such as /Volumes/Macintosh\ HD\ 1/Users/and314"
 echo "You must escape spaces: [\ ] instead of [ ]."
+echo "No Library files transferred except Firefox, Chrome, and Safari profiles"
 read -p "Type the source file path: " fileLoc
 
 mkdir -m777 -p "$destination"
@@ -29,6 +30,16 @@ for dir in "$fileLoc/"*; do
 	cp -rp "$dir" "$destination"
     fi
 done
+
+mkdir -m777 -p "$destination/Library"
+mkdir -m777 -p "$destination/Library/Safari"
+mkdir -m777 -p "$destination/Library/Application Support"
+mkdir -m777 -p "$destination/Library/Application Support/Google"
+mkdir -m777 -p "$destination/Library/Application Support/Firefox"
+
+cp -rp "$fileLoc/Library/Safari" "$destination/Library/Safari"
+cp -rp "$fileLoc/Library/Application Support/Google" "$destination/Library/Application Support/Google"
+cp -rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support/Firefox"
 
 if [ -z "$2" ]; then
     read -p "Intended owner username (or Ctrl + C to skip): " fUser
