@@ -2,6 +2,10 @@
 #Usage: sudo sh new_user.sh
 #Creates a new user, prompted on command line.
 #Alternate usage: sudo sh new_user.sh [fullname] [username] [uid] [password]
+
+#The credentials at the very end it wants are the admin password and the user
+#password set just prior.
+
 RED='\033[0;31m'
 RESET='\033[0m'
 
@@ -34,4 +38,8 @@ dscl . -passwd /Users/$username $changeme
 #Elevate to admin
 dscl . -append /Groups/admin GroupMembership $username
 
+#Allows user to unlock by filevault, needs admin password
+fdesetup add -usertoadd $username
+
+#Final output for setup.sh
 echo "$username"
