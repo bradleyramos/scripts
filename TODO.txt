@@ -3,4 +3,5 @@ setup.sh
   Add option not to install printers (Done)
   Allow "pro mode" with no help echoes (Done)
     Make all input front loaded in pro mode. (Done)
-  Implement sounds
+  Implement sounds (Done)
+Final Test
