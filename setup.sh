@@ -32,10 +32,7 @@ i=1
 
 # What's wrong here? who knows, but it works now (LOL)
 noyes='y'
-while [ "$noyes" = "y" ]; do
-	read -p "Add a printer? (y/n): " no
-	if [ "$no" == "n" ]; then
-		break
-	fi
+while [[ "$noyes" == "y" ]]; do
+	read -p "Add a printer? (y/n): " noyes
 	sh install_printer.sh
 done
