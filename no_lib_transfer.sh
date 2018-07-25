@@ -22,7 +22,7 @@ else
 fi
 
 if [ -z "$1" ]; then
-  read -p "Type the destination file path" destination
+  read -p "Type the destination file path: " destination
 else
   destination=$1
 fi
