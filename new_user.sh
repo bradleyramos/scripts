@@ -9,10 +9,19 @@
 RED='\033[0;31m'
 RESET='\033[0m'
 
+n=503
+for listuid in $(dscl . -list /Users UniqueID | awk '{print $2}'); do
+	if [ $listuid -gt $n ] || [ $listuid == $n ]; then
+		n=$(($listuid+1))
+		# echo "ping"
+	fi
+	# echo "$listuid"
+done
+
 if [ -z "$1" ]; then
 	read -p "$(echo "Define a full name, can be pretty long (30 characters) \nType the user's full name, (e.g. John Wu): ")" fullname
 	read -p "$(echo "Define a Username: No special characters or spaces alowed.\nType the username (e.g. wurules): ")" username
-	read -p "$(echo "Select a user ID. This is a UNIQUE number between 503 and 1000\nMac sets the first account (admin) 501, second (jamfadmin) 502, etc.\nType the user ID (Unique, 503-1000): ")" uid
+	read -p "$(echo "Select a user ID. This is a UNIQUE number between 503 and 1000\nMac sets the first account (admin) 501, second (jamfadmin) 502, etc.$RED \nI recommend that you pick $n $RESET\nType the user ID (Unique, 503-1000): ")" uid
 	read -p "$(echo "Set the password. In plain text, so use change,me\nType the password (plain text, e.g. change,me): ")" changeme
 else
 	fullname=$1
