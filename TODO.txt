@@ -1,5 +1,5 @@
 setup.sh
-  Prevent transferring the source folder to source folder
+  Prevent transferring the source folder to source folder (Done)
   No stupid uids
   Fix no space printer set up
   Better error handling than redo whole script
