@@ -35,3 +35,8 @@ while [[ "$noyes" == "y" ]]; do
 	sh install_printer.sh
 	read -p "Add a printer? (y/n): " noyes
 done
+
+read -p "Launch Programs to be updated? (y/n): " noyes
+if [[ "$noyes" == "y" ]]; do
+	sh launch_update.sh
+fi
