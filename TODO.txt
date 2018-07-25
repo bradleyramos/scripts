@@ -1,7 +1,7 @@
 setup.sh
   Prevent transferring the source folder to source folder (Done)
-  No stupid uids
-  Fix no space printer set up
-  Better error handling than redo whole script
+  No stupid uids (Done)
+  Fix no space printer set up (Impossible?)
+  Better error handling than redo whole script (Done)
   Launch all applications that need updates (stretch)
 Final Test
