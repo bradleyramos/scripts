@@ -37,14 +37,11 @@ for dir in "$fileLoc/"*; do
 done
 
 mkdir -m777 -p "$destination/Library"
-mkdir -m777 -p "$destination/Library/Safari"
 mkdir -m777 -p "$destination/Library/Application Support"
-mkdir -m777 -p "$destination/Library/Application Support/Google"
-mkdir -m777 -p "$destination/Library/Application Support/Firefox"
 
-cp -rp "$fileLoc/Library/Safari" "$destination/Library/Safari"
-cp -rp "$fileLoc/Library/Application Support/Google" "$destination/Library/Application Support/Google"
-cp -rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support/Firefox"
+cp -rp "$fileLoc/Library/Safari" "$destination/Library"
+cp -rp "$fileLoc/Library/Application Support/Google" "$destination/Library/Application Support"
+cp -rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support"
 
 if [ -z "$2" ]; then
     read -p "Intended owner username (or Ctrl + C to skip): " fUser
