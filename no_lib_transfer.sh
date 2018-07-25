@@ -31,8 +31,8 @@ mkdir -m777 -p "$destination"
 
 for dir in "$fileLoc/"*; do
     if [[ "$dir" != *"/Library" ]]; then
-	echo $dir
-	cp -rp "$dir" "$destination"
+	     echo $dir
+	     cp -rp "$dir" "$destination"
     fi
 done
 
