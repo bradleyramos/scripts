@@ -1,7 +1,7 @@
 setup.sh
-  Add support for profiles in Safari, Chrome, Firefox (Done)
-  Add option not to install printers (Done)
-  Allow "pro mode" with no help echoes (Done)
-    Make all input front loaded in pro mode. (Done)
-  Implement sounds (Done)
+  Prevent transferring the source folder to source folder
+  No stupid uids
+  Fix no space printer set up
+  Better error handling than redo whole script
+  Launch all applications that need updates (stretch)
 Final Test
