@@ -3,5 +3,5 @@ setup.sh
   No stupid uids (Done)
   Fix no space printer set up (Impossible?)
   Better error handling than redo whole script (Done)
-  Launch all applications that need updates (stretch)
+  Launch all applications that need updates (Done)
 Final Test
