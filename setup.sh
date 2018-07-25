@@ -30,9 +30,8 @@ printf \\a
 i=1
 
 
-# What's wrong here? who knows, but it works now (LOL)
-noyes='y'
+read -p "Add a printer? (y/n): " noyes
 while [[ "$noyes" == "y" ]]; do
-	read -p "Add a printer? (y/n): " noyes
 	sh install_printer.sh
+	read -p "Add a printer? (y/n): " noyes
 done
