@@ -11,21 +11,43 @@
 #The credentials at the very end it wants are the admin password and the user
 #password set just prior.
 
-if [ -z "$3" ]; then
-  echo ""
-  echo "Needs a full file path, such as /Volumes/Macintosh\ HD\ 1/Users/and314"
-  echo "You must escape spaces: [\ ] instead of [ ]."
-  echo "No Library files transferred except Firefox, Chrome, and Safari profiles"
-  read -p "Type the source file path: " fileLoc
-else
-  fileLoc=$3
-fi
+nos=1
+while [[ $nos == 1 ]]; do
+  nos=0
+  if [ -z "$3" ]; then
+    echo "Needs a full file path, such as /Volumes/Macintosh\ HD\ 1/Users/and314"
+    echo "You must escape spaces: [\ ] instead of [ ]."
+    echo "No Library files transferred except Firefox, Chrome, and Safari profiles"
+    read -p "Type the source file path: " fileLoc
+  else
+    fileLoc=$3
+  fi
 
-if [ -z "$1" ]; then
-  read -p "Type the destination file path: " destination
-else
-  destination=$1
-fi
+  if [ -z "$1" ]; then
+    read -p "Type the destination file path: " destination
+  else
+    destination=$1
+  fi
+
+  while [[ "$destination" == "$fileLoc"* ]]; do
+    if [ -z "$3" ]; then
+      nos=1
+      break
+    fi
+    read -p "Press ctrl + c to cancel this process. Destination cannot be in Source. " dummy
+  done
+
+  if [[ "$destination" == "$fileLoc"* ]]; then
+    read -p "$(echo "Are you sure you want to move files from within the source? \nThis will almostly certainly go very badly (y/n): ")" yoes
+    if [[ "$yoes" == "y" ]]; then
+      nos=0
+    else
+      nos=1
+    fi
+  fi
+done
+
+
 
 mkdir -m777 -p "$destination"
 

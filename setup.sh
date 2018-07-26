@@ -30,12 +30,13 @@ printf \\a
 i=1
 
 
-# What's wrong here? who knows, but it works now (LOL)
-noyes='y'
-while [ "$noyes" = "y" ]; do
-	read -p "Add a printer? (y/n): " no
-	if [ "$no" == "n" ]; then
-		break
-	fi
+read -p "Add a printer? (y/n): " noyes
+while [[ "$noyes" == "y" ]]; do
 	sh install_printer.sh
+	read -p "Add a printer? (y/n): " noyes
 done
+
+read -p "Launch Programs to be updated? (y/n): " noyes
+if [[ "$noyes" == "y" ]]; then
+	sh launch_update.sh
+fi
