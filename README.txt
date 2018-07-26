@@ -12,7 +12,7 @@ Version 0.2:
     Full help echoes not available from setup.sh's running of new_user.sh
   perm_move.bat allows settings of destination
 
-Versin 0.3
+Version 0.3
   setup.sh:
     Added support for browser profiles
     Check to install printers before first prompt
@@ -20,4 +20,8 @@ Versin 0.3
     Sounds play when steps finish
     FileVault support finalized
 
-TODO: Implementation of GUI, or at least exe files
+Version 0.4
+  setup.sh:
+    Prompts if trying to trasnfer to somewhere in source folder
+    Recommends a UID
+    lanch_update.sh created, launching applications to be updated
