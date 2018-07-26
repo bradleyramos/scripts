@@ -37,6 +37,6 @@ while [[ "$noyes" == "y" ]]; do
 done
 
 read -p "Launch Programs to be updated? (y/n): " noyes
-if [[ "$noyes" == "y" ]]; do
+if [[ "$noyes" == "y" ]]; then
 	sh launch_update.sh
 fi
