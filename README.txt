@@ -25,3 +25,5 @@ Version 0.4
     Prompts if trying to trasnfer to somewhere in source folder
     Recommends a UID
     lanch_update.sh created, launching applications to be updated
+  new_user.sh:
+    filevault set up depends on the model of computer used (BUT WHY WHHHHHHYYYY)
