@@ -17,3 +17,5 @@ open /Applications/CrashPlan.app
 open /Applications/EndNote\ X8/EndNote\ X8.app
 open /Applications/Symantec\ Solutions/Symantec\ Endpoint\ Protection.app
 open /Applications/Adobe\ Acrobat\ DC/Adobe\ Acrobat.app
+
+open /Library/Application\ Support/Microsoft/MAU2.0/Microsoft\ AutoUpdate.app
