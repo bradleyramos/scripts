@@ -9,7 +9,6 @@ open /Applications/Microsoft\ Excel.app
 open /Applications/Microsoft\ PowerPoint.app
 
 open /Applications/Firefox.app
-open /Applications/Safari.app
 open /Applications/Google\ Chrome.app
 
 open /Applications/Box\ Sync.app
