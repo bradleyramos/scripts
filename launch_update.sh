@@ -4,6 +4,7 @@
 #This needs to be changed every time the image has its applications changed (!!)
 
 #move this to the end after testing
+#DOESN'T WORK UNLESS MAU UPDATED TO 3.18, ALSO IF APPS AREN'T OPENED BY HAND
 ./Library/Application\ Support/Microsoft/MAU2.0/Microsoft\ AutoUpdate.app/Contents/MacOS/msupdate --install
 
 open /Applications/Firefox.app
