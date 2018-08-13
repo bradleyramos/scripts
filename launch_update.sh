@@ -11,7 +11,7 @@ open /Applications/Microsoft\ PowerPoint.app
 open /Applications/Firefox.app
 open /Applications/Google\ Chrome.app
 
-open /Applications/Box\ Sync.app
+open /Applications/Box.app
 open /Applications/CrashPlan.app
 open /Applications/EndNote\ X8/EndNote\ X8.app
 open /Applications/Symantec\ Solutions/Symantec\ Endpoint\ Protection.app
