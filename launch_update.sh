@@ -9,13 +9,13 @@ open /Applications/Microsoft\ Excel.app
 open /Applications/Microsoft\ PowerPoint.app
 
 open /Applications/Firefox.app
-open /Applications/Safari.app
 open /Applications/Google\ Chrome.app
 
 open /Applications/Box\ Sync.app
 open /Applications/CrashPlan.app
 open /Applications/EndNote\ X8/EndNote\ X8.app
 open /Applications/Symantec\ Solutions/Symantec\ Endpoint\ Protection.app
+open x-apple.systempreferences:com.apple.preference.security
 open /Applications/Adobe\ Acrobat\ DC/Adobe\ Acrobat.app
 
 open /Library/Application\ Support/Microsoft/MAU2.0/Microsoft\ AutoUpdate.app
