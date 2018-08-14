@@ -6,7 +6,6 @@
 
 #This variable sets the destination of the files to be transferred
 #and can be edited to be any path of your choosing (use sudo though).
-#Note that you will have to use no spaces when you edit this (e.g. /Volumes/Macintosh\ HD\ 1/Users/and314).
 
 #The credentials at the very end it wants are the admin password and the user
 #password set just prior.
@@ -16,7 +15,7 @@ while [[ $nos == 1 ]]; do
   nos=0
   if [ -z "$3" ]; then
     echo "Needs a full file path, such as /Volumes/Macintosh\ HD\ 1/Users/and314"
-    echo "You must escape spaces: [\ ] instead of [ ]."
+    echo "You do not need to escape spaces, but this will break autofill."
     echo "No Library files transferred except Firefox, Chrome, and Safari profiles"
     read -e -p "Type the source file path: " fileLoc
   else
