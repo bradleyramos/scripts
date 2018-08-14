@@ -18,13 +18,13 @@ while [[ $nos == 1 ]]; do
     echo "Needs a full file path, such as /Volumes/Macintosh\ HD\ 1/Users/and314"
     echo "You must escape spaces: [\ ] instead of [ ]."
     echo "No Library files transferred except Firefox, Chrome, and Safari profiles"
-    read -p "Type the source file path: " fileLoc
+    read -e -p "Type the source file path: " fileLoc
   else
     fileLoc=$3
   fi
 
   if [ -z "$1" ]; then
-    read -p "Type the destination file path: " destination
+    read -e -p "Type the destination file path: " destination
   else
     destination=$1
   fi
