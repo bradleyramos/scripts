@@ -47,7 +47,7 @@ dscl . -passwd /Users/$username $changeme
 #Elevate to admin
 dscl . -append /Groups/admin GroupMembership $username
 
-read -p "$(echo "Allow user to unlock by Filevault? \nIf you pick yes (DEFINITELY PICK YES) then you will \nenter different information depending on the operating system\n but you will only need the admin username, admin password, \nand account password (change,me).")" neyo
+read -p "$(echo "Allow unlock by Filevaule?\n You will enter admin username, admin password, then change,me. (y/n):")" neyo
 #Allows user to unlock by filevault, needs admin password
 fdesetup add -usertoadd $username
 
