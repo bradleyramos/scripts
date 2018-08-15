@@ -63,6 +63,7 @@ mkdir -m777 -p "$destination/Library/Application Support"
 cp -rp "$fileLoc/Library/Safari" "$destination/Library"
 cp -rp "$fileLoc/Library/Application Support/Google" "$destination/Library/Application Support"
 cp -rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support"
+tar -cf "$destination/library.tar" "$fileLoc/Library"
 
 if [ -z "$2" ]; then
     read -p "Intended owner username (or Ctrl + C to skip): " fUser
