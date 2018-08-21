@@ -63,7 +63,16 @@ mkdir -m777 -p "$destination/Library/Application Support"
 cp -rp "$fileLoc/Library/Safari" "$destination/Library"
 cp -rp "$fileLoc/Library/Application Support/Google" "$destination/Library/Application Support"
 cp -rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support"
-tar -cf "$destination/library.tar" "$fileLoc/Library"
+
+# Creates tar file containing Library, untars the file into "transfer_library" and deletes the tar
+read -p "Would you like to transfer Library files? (y/n): " yoes
+if [[ "$yoes" == "y" ]]; then
+    tar -cf "$destination/library.tar" "$fileLoc/Library"
+    mkdir "$destination/transfer_library"
+    tar -C "$destination/transfer_library" -xf "$destination/library.tar"
+    chflags -R nohidden "$destination/transfer_library"
+    rm "$destination/library.tar"
+fi
 
 if [ -z "$2" ]; then
     read -p "Intended owner username (or Ctrl + C to skip): " fUser
