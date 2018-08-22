@@ -1,5 +1,5 @@
 Version 0.1:
-  Succesfully makes one user account, transfers data to said account, and creates a printer
+  Successfully makes one user account, transfers data to said account, and creates a printer
   with driver preloaded into witmac.
 
 Version 0.2:
@@ -22,8 +22,8 @@ Version 0.3
 
 Version 0.4
   setup.sh:
-    Prompts if trying to trasnfer to somewhere in source folder
+    Prompts if trying to transfer to somewhere in source folder
     Recommends a UID
-    lanch_update.sh created, launching applications to be updated
+    launch_update.sh created, launching applications to be updated
   new_user.sh:
     filevault set up depends on the model of computer used (BUT WHY WHHHHHHYYYY)
