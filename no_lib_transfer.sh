@@ -45,7 +45,8 @@ while [[ $nos == 1 ]]; do
     fi
   fi
 done
-
+# Used later to create transfer_library file
+read -p "Would you like to transfer Library files? (y/n): " yoes
 
 
 mkdir -m777 -p "$destination"
@@ -65,7 +66,6 @@ cp -rp "$fileLoc/Library/Application Support/Google" "$destination/Library/Appli
 cp -rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support"
 
 # Creates tar file containing Library, untars the file into "transfer_library" and deletes the tar
-read -p "Would you like to transfer Library files? (y/n): " yoes
 if [[ "$yoes" == "y" ]]; then
     tar -cf "$destination/library.tar" "$fileLoc/Library"
     mkdir "$destination/transfer_library"
