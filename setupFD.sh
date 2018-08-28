@@ -21,11 +21,12 @@ if [[ "$noyes" == "y" ]]; then
 else
     read -p "Is the data on an external hard drive? (y/n): " noyes
     if [[ "$noyes" == "y" ]]; then
-        oldFile="/Volumes/HFS+ Partition/Users"
+        #In this case, we need to check the HFS+ Partition specifically (no users folder in this case)
+        oldFile="/Volumes/HFS+ Partition"
     else
         while [[ "1" == "1" ]]; do
             #Must use not for dummies to customize source location
-            read -p "You're fucked, use setup.sh instead. Press Ctrl + C to exit." noyes
+            read -p "You're fucked. Use setup.sh instead. Press Ctrl + C to exit." noyes
         done
     fi
 fi
