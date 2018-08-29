@@ -1,8 +1,8 @@
 #!/bin/bash
-#Usage: sh no_lib_transfer.sh [destination directory] [username] [source directory]
-#Use sudo sh no_lib_transfer.sh in most cases
+#Usage: sh transfer.sh [destination directory] [username] [source directory]
+#Use sudo sh transfer.sh in most cases
 #[destination directory] - optional, transfers non-library files to selected directory.
-#Files will be put on the desktop of the admin account in a folder called Transfer
+#Files will be put in Users folder of destination directory in "Transfer"
 
 #This variable sets the destination of the files to be transferred
 #and can be edited to be any path of your choosing (use sudo though).
