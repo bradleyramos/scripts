@@ -16,7 +16,7 @@ while [[ $nos == 1 ]]; do
   if [ -z "$3" ]; then
     echo "Needs a full file path, such as /Volumes/Macintosh\ HD\ 1/Users/and314"
     echo "You do not need to escape spaces, but this will break autofill."
-    echo "No Library files transferred except Firefox, Chrome, and Safari profiles"
+    echo "No Library files transferred except Firefox, Chrome, and Safari profiles... unless you want it to"
     read -e -p "Type the source file path: " fileLoc
   else
     fileLoc=$3
@@ -61,16 +61,23 @@ done
 mkdir -m777 -p "$destination/Library"
 mkdir -m777 -p "$destination/Library/Application Support"
 
+echo "Transferring internet profiles... "
 cp -rp "$fileLoc/Library/Safari" "$destination/Library"
 cp -rp "$fileLoc/Library/Application Support/Google" "$destination/Library/Application Support"
 cp -rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support"
 
 # Creates tar file containing Library, untars the file into "transfer_library" and deletes the tar
+
 if [[ "$yoes" == "y" ]]; then
+    echo "Archiving Library files... "
     tar -cf "$destination/library.tar" "$fileLoc/Library"
-    mkdir "$destination/transfer_library"
+
+    echo "Extracting Library files to transfer_library... "
+    mkdir -m777 -p "$destination/transfer_library"
     tar -C "$destination/transfer_library" -xf "$destination/library.tar"
     chflags -R nohidden "$destination/transfer_library"
+
+    echo "Deleting library.tar... "
     rm "$destination/library.tar"
 fi
 
