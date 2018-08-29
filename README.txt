@@ -33,7 +33,7 @@ Version 1.0
     Asks to transfer Library files (pending name change)
     Untars into transfer_library directory and deletes tar file
   launch_update.sh
-    Removed safari launch
+    Removed Safari launch
     Launches system preferences and Microsoft AutoUpdate
     Updated box app launch
   Added simple_setup:
