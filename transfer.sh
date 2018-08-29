@@ -71,9 +71,9 @@ cp -rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Appl
 if [[ "$yoes" == "y" ]]; then
     echo "Archiving Library files... "
     tar -cf "$destination/library.tar" "$fileLoc/Library"
-    mkdir -m777 -p "$destination/transfer_library"
-    
+
     echo "Extracting Library files to transfer_library... "
+    mkdir -m777 -p "$destination/transfer_library"
     tar -C "$destination/transfer_library" -xf "$destination/library.tar"
     chflags -R nohidden "$destination/transfer_library"
     
