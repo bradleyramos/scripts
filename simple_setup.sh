@@ -6,7 +6,7 @@
 
 RED='\033[0;31m'
 RESET='\033[0m'
-GREEN='\033[0;31m'
+GREEN='\033[0;92m'
 
 read -p "Type the Client's first name: " firstName
 read -p "Type the Client's last name: " lastName
