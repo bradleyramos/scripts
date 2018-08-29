@@ -27,3 +27,16 @@ Version 0.4
     launch_update.sh created, launching applications to be updated
   new_user.sh:
     filevault set up depends on the model of computer used (BUT WHY WHHHHHHYYYY)
+
+Version 1.0
+  transfer.sh:
+    Asks to transfer Library files (pending name change)
+    Untars into transfer_library directory and deletes tar file
+  launch_update.sh
+    Removed safari launch
+    Launches system preferences and Microsoft AutoUpdate
+    Updated box app launch
+  Added simple_setup:
+    Only asks user for First Name, Last Name, and location of source file
+    Source must be another computer in transfer mode or an APFS+ Partition hard drive
+    User creation, file transfer, and launch update included
