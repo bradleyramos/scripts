@@ -30,7 +30,7 @@ Version 0.4
 
 Version 1.0
   transfer.sh:
-    Asks to transfer Library files (pending name change)
+    Asks to transfer Library files
     Untars into transfer_library directory and deletes tar file
   launch_update.sh
     Removed Safari launch
