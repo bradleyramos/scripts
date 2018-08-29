@@ -25,7 +25,7 @@ else
     else
         while [[ "1" == "1" ]]; do
             #Must use not for dummies to customize source location
-            echo "You're fucked. Use setup.sh instead. Press Ctrl + C to exit.\n"
+            read -p "You're doomed. Use setup.sh instead. Press Ctrl + C to exit. " noyes
         done
     fi
 fi
