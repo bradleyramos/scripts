@@ -56,7 +56,7 @@ echo ${RED}"User account created----------------------------------------"${RESET
 printf \\a
 
 
-sh no_lib_transfer.sh /Users/"$username" "$username" "$fileLoc"
+sh transfer.sh /Users/"$username" "$username" "$fileLoc"
 echo ${RED}"Data Transferred---------------------------------------------"${RESET}
 printf \\a
 i=1
