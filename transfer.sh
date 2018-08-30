@@ -79,6 +79,8 @@ if [[ "$yoes" == "y" ]]; then
     
     echo "Deleting library.tar... "
     rm "$destination/library.tar"
+    # Grants permissions to all staff users (including admin account) on computer
+    chmod -R 770 "$destination/transfer_library"
 fi
 
 if [ -z "$2" ]; then
