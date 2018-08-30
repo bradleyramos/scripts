@@ -9,7 +9,8 @@ open /Applications/Microsoft\ Excel.app
 open /Applications/Microsoft\ PowerPoint.app
 
 open /Applications/Firefox.app
-open /Applications/Google\ Chrome.app
+# chrome ain't workin
+# open /Applications/Google\ Chrome.app
 
 open /Applications/Box.app
 open /Applications/CrashPlan.app
