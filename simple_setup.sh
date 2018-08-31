@@ -17,11 +17,13 @@ echo "Concerning the Data transfer: "
 read -p "Is the old computer in Target mode and connected to this computer? (y/n): " noyes
 if [[ "$noyes" == "y" ]]; then
     oldFile="/Volumes/Macintosh HD 1/Users"
+    type="user accounts"
 else
     read -p "Is the data on an external hard drive? (y/n): " noyes
     if [[ "$noyes" == "y" ]]; then
         #In this case, we need to check the HFS+ Partition specifically (no users folder in this case)
         oldFile="/Volumes/HFS+ Partition"
+        type="folders"
     else
         while [[ "1" == "1" ]]; do
             #Must use not for dummies to customize source location
@@ -35,7 +37,7 @@ echo "$GREEN"
 ls "$oldFile"
 echo "$RESET"
 
-read -p "$(echo "${RED}Which of the above user accounts do you want to transfer?\n(Typically their netID, Lastname, or Firstname) $RESET"):\n" oldUser
+read -p "$(echo "${RED}Which of the above $type do you want to transfer?\n(Typically their netID, Lastname, or Firstname) $RESET"):\n" oldUser
 fileLoc="$oldFile/$oldUser"
 
 #Copied from new_user.sh
