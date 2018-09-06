@@ -14,9 +14,9 @@ nos=1
 while [[ $nos == 1 ]]; do
   nos=0
   if [ -z "$3" ]; then
-    echo "Needs a full file path, such as /Volumes/Macintosh\ HD\ 1/Users/and314"
-    echo "You do not need to escape spaces, but this will break autofill."
-    echo "No Library files transferred except Firefox, Chrome, and Safari profiles... unless you want it to"
+    echo "Needs a full file path, such as /Volumes/Macintosh HD 1/Users/and314"
+    echo "You do not need to escape spaces, but do not touch your tab key (autofill breaks)."
+    echo "Firefox, Chrome, and Safari profiles are automatically transferred."
     read -e -p "Type the source file path: " fileLoc
   else
     fileLoc=$3
