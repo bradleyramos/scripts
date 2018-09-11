@@ -37,7 +37,7 @@ echo "$GREEN"
 ls "$oldFile"
 echo "$RESET"
 
-read -p "$(echo "${RED}Which of the above $type do you want to transfer?\n(Typically their netID, Lastname, or Firstname) $RESET"):\n" oldUser
+read -p "$(echo "${RED}Which of the above $type do you want to transfer?\n(Typically their netID, Lastname, or Firstname) $RESET"):" oldUser
 fileLoc="$oldFile/$oldUser"
 
 #Copied from new_user.sh
