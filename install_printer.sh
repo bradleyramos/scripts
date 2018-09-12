@@ -7,7 +7,7 @@ RED='\033[0;31m'
 RESET='\033[0m'
 GREEN='\033[0;92m'
 
-echo "Downloading printer drivers, you need the admin password below. Use Ethernet for insane speed."
+echo "Downloading drivers, admin password below. Use Ethernet for extreme speed."
 scp admin@129.105.3.7:/Users/admin/printers.tar /Users/admin/printers.tar
 mkdir -m777 /Users/admin/PPDS
 tar -C "/Users/admin/PPDS" -xf "/Users/admin/printers.tar"
