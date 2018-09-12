@@ -29,7 +29,7 @@ while [[ "$restart" == "y" ]]; do
 	#Why is there -r here? I have no idea
 	read -r -p "Model of printer (name of driver, e.g. RICOH MP C6004): " model
 	echo "Moving driver, Input admin password"
-	cp /Users/admin/PPDS/Printers/PPDs/Contents/Resources/\""$model"\" /Library/Printers/PPDs/Contents/Resources/\""$model"\"
+	cp "/Users/admin/PPDS/Printers/PPDs/Contents/Resources/$model" "/Library/Printers/PPDs/Contents/Resources/$model"
 	read -p "$(echo $RED"Manufacturer, Valid options: RICOH, Canon, KONICAMINOLTA, other: "$RESET)" manu
 
 	case "$manu" in
@@ -43,7 +43,7 @@ while [[ "$restart" == "y" ]]; do
 		;;
 	"KONICAMINOLTA")
 		echo "Copying $manu dependencies, Input admin password:"
-		cp -r  /Users/admin/PPDS/Printers/KONICAMINOLTA /Library/Printers/KONICAMINOLTA
+		cp -r  /Users/admin/PPDS/Printers/KONICAMINOLTA/Library/Printers/KONICAMINOLTA
 		;;
 	*)
 		echo "Not Copying manufacturer dependencies... hope it's an HP..."
