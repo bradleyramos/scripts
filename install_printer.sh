@@ -52,6 +52,11 @@ while [[ "$restart" == "y" ]]; then
 
 	echo $RED"Installing printer"$RESET
 	/usr/sbin/lpadmin -p $ipAdd -o printer-is-shared="False" -E -v lpd://"$ipAdd" -P /Library/Printers/PPDs/Contents/Resources/"$model" -D "$name"
-	echo "It's over"
+	echo "Printer Installed"
 	read -p "Install another printer? (y/n): " restart
 done
+
+echo "Deleting temp files"
+
+rm -r /Users/admin/PPDS/
+rm /Users/admin/printers.tar
