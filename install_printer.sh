@@ -1,20 +1,20 @@
 #!/bin/bash
 #Usage: sudo sh install_printer.sh
 #You must run this as an admin (with sudo) or nothing will happen.
-#Installs a single printer whose model is already downloaded into witmac. Beware that model must
-#exactly match the name of the driver. Will ask you for the admin password twice (lol).
+#Installs any number of printers whose model is already downloaded into witmac. Beware that model must
+#exactly match the name of the driver. Will ask you for the admin password once.
 RED='\033[0;31m'
 RESET='\033[0m'
 GREEN='\033[0;92m'
 
-echo "Downloading printer drivers, you will need the admin password below."
+echo "Downloading printer drivers, you may or may not need the admin password below."
 scp admin@129.105.3.7:/Users/admin/printers.tar /Users/admin/printers.tar
 mkdir -m777 /Users/admin/PPDS
 tar -C "/Users/admin/PPDS" -xf "/Users/admin/printers.tar"
 
 restart=y
 
-while [[ "$restart" == "y" ]]; then
+while [[ "$restart" == "y" ]]; do
 	echo "Do you wish to see a list of valid models and their names?"
 	read -p "BEWARE, this list is long (y/n): " yesno
 	if [ "$yesno" == "y" ]; then
