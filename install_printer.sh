@@ -28,7 +28,7 @@ while [[ "$restart" == "y" ]]; do
 	read -p "IP address of printer: " ipAdd
 	#Why is there -r here? I have no idea
 	read -r -p "Model of printer (name of driver, e.g. RICOH MP C6004): " model
-	echo "Moving driver, Input admin password"
+	echo "Moving driver."
 	cp "/Users/admin/PPDS/Printers/PPDs/Contents/Resources/$model" "/Library/Printers/PPDs/Contents/Resources/$model"
 	read -p "$(echo $RED"Manufacturer, Valid options: RICOH, Canon, KONICAMINOLTA, other: "$RESET)" manu
 
