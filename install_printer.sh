@@ -35,15 +35,15 @@ while [[ "$restart" == "y" ]]; do
 	case "$manu" in
 	"RICOH")
 		echo "Copying $manu dependencies, Input admin password:"
-		cp -r  /Users/admin/PPDS/Printers/RICOH/Library/Printers/Ricoh
+		cp -r  /Users/admin/PPDS/Printers/RICOH /Library/Printers/Ricoh
 		;;
 	"Canon")
 		echo "Copying $manu dependencies, Input admin password:"
-		cp -r  /Users/admin/PPDS/Printers/Canon/Library/Printers/Canon
+		cp -r  /Users/admin/PPDS/Printers/Canon /Library/Printers/Canon
 		;;
 	"KONICAMINOLTA")
 		echo "Copying $manu dependencies, Input admin password:"
-		cp -r  /Users/admin/PPDS/Printers/KONICAMINOLTA/Library/Printers/KONICAMINOLTA
+		cp -r  /Users/admin/PPDS/Printers/KONICAMINOLTA /Library/Printers/KONICAMINOLTA
 		;;
 	*)
 		echo "Not Copying manufacturer dependencies... hope it's an HP..."
