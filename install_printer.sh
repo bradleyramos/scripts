@@ -34,15 +34,15 @@ while [[ "$restart" == "y" ]]; do
 
 	case "$manu" in
 	"RICOH")
-		echo "Copying $manu dependencies, Input admin password:"
+		echo "Copying $manu dependencies."
 		cp -r  /Users/admin/PPDS/Printers/RICOH /Library/Printers/Ricoh
 		;;
 	"Canon")
-		echo "Copying $manu dependencies, Input admin password:"
+		echo "Copying $manu dependencies."
 		cp -r  /Users/admin/PPDS/Printers/Canon /Library/Printers/Canon
 		;;
 	"KONICAMINOLTA")
-		echo "Copying $manu dependencies, Input admin password:"
+		echo "Copying $manu dependencies."
 		cp -r  /Users/admin/PPDS/Printers/KONICAMINOLTA /Library/Printers/KONICAMINOLTA
 		;;
 	*)
