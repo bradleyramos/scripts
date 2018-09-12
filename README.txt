@@ -40,3 +40,12 @@ Version 1.0
     Only asks user for First Name, Last Name, and location of source file
     Source must be another computer in transfer mode or an APFS+ Partition hard drive
     User creation, file transfer, and launch update included
+
+Vestion 1.1
+  crontab
+    Job to keep github repo on witmac (reasonably) up to date
+    Job to create printer driver archive for install_driver
+  install_printer.sh:
+    Asks only once for admin password
+    Downloads faster by taking all from cron job
+    repeats possible with just script
