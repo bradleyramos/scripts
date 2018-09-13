@@ -14,6 +14,7 @@ open /Applications/Firefox.app
 
 open /Applications/Box.app
 open /Applications/CrashPlan.app
+open /Applications/EndNote\ X8/EndNote\ X8.app
 open /Applications/EndNote\ X9/EndNote\ X9.app
 open /Applications/Symantec\ Solutions/Symantec\ Endpoint\ Protection.app
 open x-apple.systempreferences:com.apple.preference.security
