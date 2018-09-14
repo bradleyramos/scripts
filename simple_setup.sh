@@ -60,7 +60,7 @@ printf \\a
 
 sh transfer.sh /Users/"$username" "$username" "$fileLoc"
 echo ${RED}"Data Transferred---------------------------------------------"${RESET}
-printf \\a
+say The Data Transfer Has Completed.
 i=1
 
 read -p "Launch Programs to be updated? (y/n): " noyes
