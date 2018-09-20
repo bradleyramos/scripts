@@ -19,20 +19,20 @@ username="${username// /_}"
 echo "Concerning the Data transfer: "
 read -p "Is the old computer in Target mode and connected to this computer? (y/n): " noyes
 if [[ "$noyes" == "y" ]]; then
-    oldFile="/Volumes/Macintosh HD 1/Users"
-    type="user accounts"
+  oldFile="/Volumes/Macintosh HD 1/Users"
+  type="user accounts"
 else
-    read -p "Is the data on an external hard drive? (y/n): " noyes
-    if [[ "$noyes" == "y" ]]; then
-        #In this case, we need to check the HFS+ Partition specifically (no users folder in this case)
-        oldFile="/Volumes/HFS+ Partition"
-        type="folders"
-    else
-        while [[ "1" == "1" ]]; do
+  read -p "Is the data on an external hard drive? (y/n): " noyes
+  if [[ "$noyes" == "y" ]]; then
+    #In this case, we need to check the HFS+ Partition specifically (no users folder in this case)
+    oldFile="/Volumes/HFS+ Partition"
+    type="folders"
+  else
+    while [[ "1" == "1" ]]; do
             #Must use not for dummies to customize source location
-            read -p "You're doomed. Use setup.sh instead. Press Ctrl + C to exit. " noyes
-        done
-    fi
+      read -p "You're doomed. Use setup.sh instead. Press Ctrl + C to exit. " noyes
+    done
+  fi
 fi
 
 #Next part is green to highlight part they need to read
@@ -43,14 +43,14 @@ echo "$RESET"
 #Error check for non-existant input folders
 noyes=1
 while [[ $noyes == 1 ]]; do
-    read -p "$(echo "Which of the above $type do you want to transfer?\n(Typically their netID, Last Name, or First Name): ")" oldUser
-    fileLoc="$oldFile/$oldUser"
-    if [ ! -d "$oldFile/$oldUser" ]; then
-        noyes=1
-        echo "${RED}This is not a valid choice (Not in the list above) $RESET"
-    else
-        noyes=0
-    fi
+  read -p "$(echo "Which of the above $type do you want to transfer?\n(Typically their netID, Last Name, or First Name): ")" oldUser
+  fileLoc="$oldFile/$oldUser"
+  if [ ! -d "$oldFile/$oldUser" ]; then
+    noyes=1
+    echo "${RED}This is not a valid choice (Not in the list above) $RESET"
+  else
+    noyes=0
+  fi
 done
 
 
@@ -58,11 +58,11 @@ done
 #Copied from new_user.sh
 n=503
 for listuid in $(dscl . -list /Users UniqueID | awk '{print $2}'); do
-    if [ $listuid -gt $n ] || [ $listuid == $n ]; then
-        n=$(($listuid+1))
-        # echo "ping"
-    fi
-        # echo "$listuid"
+  if [ $listuid -gt $n ] || [ $listuid == $n ]; then
+    n=$(($listuid+1))
+    # echo "ping"
+  fi
+    # echo "$listuid"
 done
 
 uid="$n"
@@ -80,5 +80,5 @@ i=1
 
 read -p "Launch Programs to be updated? (y/n): " noyes
 if [[ "$noyes" == "y" ]]; then
-	sh launch_update.sh
+  sh launch_update.sh
 fi
