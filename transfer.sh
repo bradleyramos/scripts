@@ -52,7 +52,7 @@ read -p "Would you like to transfer Library files? (y/n): " yoes
 mkdir -m777 -p "$destination"
 
 for dir in "$fileLoc/"*; do
-    if [[ "$dir" != *"/Library" ]]; then
+    if [[ "$dir" != *"/Library" ] && [ "$dir" != *"/library_transfer" ]]; then
 	     echo $dir
 	     cp -rp "$dir" "$destination"
     fi
@@ -76,7 +76,7 @@ if [[ "$yoes" == "y" ]]; then
     mkdir -m777 -p "$destination/transfer_library"
     tar -C "$destination/transfer_library" -xf "$destination/library.tar"
     chflags -R nohidden "$destination/transfer_library"
-    
+
     echo "Deleting library.tar... "
     rm "$destination/library.tar"
     # Grants permissions to all staff users (including admin account) on computer
