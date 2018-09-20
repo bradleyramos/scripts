@@ -28,7 +28,7 @@ while [[ $nos == 1 ]]; do
     destination=$1
   fi
 
-  while [[ "$destination" == "$fileLoc"* ]]; do
+  while [[ "$destination/"* == "$fileLoc" ]]; do
     if [ -z "$3" ]; then
       nos=1
       break
@@ -36,8 +36,8 @@ while [[ $nos == 1 ]]; do
     read -p "Press ctrl + c to cancel this process. Destination cannot be in Source. " dummy
   done
 
-  if [[ "$destination" == "$fileLoc"* ]]; then
-    read -p "$(echo "Are you sure you want to move files from within the source? \nThis will almostly certainly go very badly (y/n): ")" yoes
+  if [[ "$destination" == "$fileLoc/"* ]]; then
+    read -p "$(echo "Are you sure you want to move files to within the source? \nThis will almostly certainly go very badly (y/n): ")" yoes
     if [[ "$yoes" == "y" ]]; then
       nos=0
     else
@@ -52,7 +52,7 @@ read -p "Would you like to transfer Library files? (y/n): " yoes
 mkdir -m777 -p "$destination"
 
 for dir in "$fileLoc/"*; do
-    if [[ "$dir" != *"/Library" ]]; then
+    if [[ "$dir" != *"/Library" ]] && [[ "$dir" != *"/transfer_library" ]]; then
 	     echo $dir
 	     cp -rp "$dir" "$destination"
     fi
@@ -76,7 +76,7 @@ if [[ "$yoes" == "y" ]]; then
     mkdir -m777 -p "$destination/transfer_library"
     tar -C "$destination/transfer_library" -xf "$destination/library.tar"
     chflags -R nohidden "$destination/transfer_library"
-    
+
     echo "Deleting library.tar... "
     rm "$destination/library.tar"
     # Grants permissions to all staff users (including admin account) on computer

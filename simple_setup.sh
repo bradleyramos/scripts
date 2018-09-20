@@ -12,6 +12,9 @@ read -p "Type the Client's first name: " firstName
 read -p "Type the Client's last name: " lastName
 #Sends to lower case
 username="$(echo "$lastName" | awk '{print tolower($0)}')"
+#Replaces spaces with underscores
+username="${username// /_}"
+
 
 echo "Concerning the Data transfer: "
 read -p "Is the old computer in Target mode and connected to this computer? (y/n): " noyes
@@ -37,8 +40,20 @@ echo "$GREEN"
 ls "$oldFile"
 echo "$RESET"
 
-read -p "$(echo "${RED}Which of the above $type do you want to transfer?\n(Typically their netID, Lastname, or Firstname) $RESET"):" oldUser
-fileLoc="$oldFile/$oldUser"
+#Error check for non-existant input folders
+noyes=1
+while [[ $noyes == 1 ]]; do
+    read -p "$(echo "Which of the above $type do you want to transfer?\n(Typically their netID, Last Name, or First Name): ")" oldUser
+    fileLoc="$oldFile/$oldUser"
+    if [ ! -d "$oldFile/$oldUser" ]; then
+        noyes=1
+        echo "${RED}This is not a valid choice (Not in the list above) $RESET"
+    else
+        noyes=0
+    fi
+done
+
+
 
 #Copied from new_user.sh
 n=503
@@ -60,7 +75,7 @@ printf \\a
 
 sh transfer.sh /Users/"$username" "$username" "$fileLoc"
 echo ${RED}"Data Transferred---------------------------------------------"${RESET}
-say -v Thomas The Data Transfer Has Completed.
+say -v Daniel Done
 i=1
 
 read -p "Launch Programs to be updated? (y/n): " noyes
