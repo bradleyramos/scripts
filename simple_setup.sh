@@ -40,8 +40,19 @@ echo "$GREEN"
 ls "$oldFile"
 echo "$RESET"
 
-read -p "$(echo "${RED}Which of the above $type do you want to transfer?\n(Typically their netID, Last Name, or First Name) $RESET"):" oldUser
-fileLoc="$oldFile/$oldUser"
+noyes==1
+while [[ $noyes == 1 ]]; do
+    read -p "$(echo "${RED}Which of the above $type do you want to transfer?\n(Typically their netID, Last Name, or First Name) $RESET"):" oldUser
+    fileLoc="$oldFile/$oldUser"
+    if [ ! -d "$oldFile/$oldUser" ]; then
+        noyes==1
+        echo "This is not a valid user"
+    else
+        noyes==0
+    fi
+done
+
+
 
 #Copied from new_user.sh
 n=503
