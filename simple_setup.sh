@@ -35,7 +35,6 @@ else
     fi
 fi
 
-oldFile="/Users"
 #Next part is green to highlight part they need to read
 echo "$GREEN"
 ls "$oldFile"
