@@ -35,20 +35,22 @@ else
     fi
 fi
 
+oldFile="/Users"
 #Next part is green to highlight part they need to read
 echo "$GREEN"
 ls "$oldFile"
 echo "$RESET"
 
-noyes==1
+#Error check for non-existant input folders
+noyes=1
 while [[ $noyes == 1 ]]; do
-    read -p "$(echo "${RED}Which of the above $type do you want to transfer?\n(Typically their netID, Last Name, or First Name) $RESET"):" oldUser
+    read -p "$(echo "Which of the above $type do you want to transfer?\n(Typically their netID, Last Name, or First Name): ")" oldUser
     fileLoc="$oldFile/$oldUser"
     if [ ! -d "$oldFile/$oldUser" ]; then
-        noyes==1
-        echo "This is not a valid user"
+        noyes=1
+        echo "${RED}This is not a valid choice (Not in the list above) $RESET"
     else
-        noyes==0
+        noyes=0
     fi
 done
 
@@ -74,7 +76,7 @@ printf \\a
 
 sh transfer.sh /Users/"$username" "$username" "$fileLoc"
 echo ${RED}"Data Transferred---------------------------------------------"${RESET}
-say -v Thomas The Data Transfer Has Completed.
+printf \\a
 i=1
 
 read -p "Launch Programs to be updated? (y/n): " noyes
