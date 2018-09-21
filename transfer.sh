@@ -1,5 +1,5 @@
 #!/bin/bash
-#Usage: sh transfer.sh [destination directory] [username] [source directory]
+#Usage: sh transfer.sh [destination directory] [username] [source directory] [lib_switch]
 #Use sudo sh transfer.sh in most cases
 #[destination directory] - optional, transfers non-library files to selected directory.
 #Files will be put in Users folder of destination directory in "Transfer"
@@ -46,7 +46,12 @@ while [[ $nos == 1 ]]; do
   fi
 done
 # Used later to create transfer_library file
-read -p "Would you like to transfer Library files? (y/n): " yoes
+
+if [ -z "$4" ]; then
+  read -p "Would you like to transfer Library files? (y/n): " yoes
+else
+  yoes=$4
+fi
 
 
 mkdir -m777 -p "$destination"
