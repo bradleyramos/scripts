@@ -1,5 +1,5 @@
 #!/bin/bash
-#Usage: sh transfer.sh [destination directory] [username] [source directory]
+#Usage: sh transfer.sh [destination directory] [username] [source directory] [lib_switch]
 #Use sudo sh transfer.sh in most cases
 #[destination directory] - optional, transfers non-library files to selected directory.
 #Files will be put in Users folder of destination directory in "Transfer"
@@ -28,7 +28,7 @@ while [[ $nos == 1 ]]; do
     destination=$1
   fi
 
-  while [[ "$destination" == "$fileLoc"* ]]; do
+  while [[ "$destination/"* == "$fileLoc" ]]; do
     if [ -z "$3" ]; then
       nos=1
       break
@@ -36,8 +36,8 @@ while [[ $nos == 1 ]]; do
     read -p "Press ctrl + c to cancel this process. Destination cannot be in Source. " dummy
   done
 
-  if [[ "$destination" == "$fileLoc"* ]]; then
-    read -p "$(echo "Are you sure you want to move files from within the source? \nThis will almostly certainly go very badly (y/n): ")" yoes
+  if [[ "$destination" == "$fileLoc/"* ]]; then
+    read -p "$(echo "Are you sure you want to move files to within the source? \nThis will almostly certainly go very badly (y/n): ")" yoes
     if [[ "$yoes" == "y" ]]; then
       nos=0
     else
@@ -46,13 +46,18 @@ while [[ $nos == 1 ]]; do
   fi
 done
 # Used later to create transfer_library file
-read -p "Would you like to transfer Library files? (y/n): " yoes
+
+if [ -z "$4" ]; then
+  read -p "Would you like to transfer Library files? (y/n): " yoes
+else
+  yoes=$4
+fi
 
 
 mkdir -m777 -p "$destination"
 
 for dir in "$fileLoc/"*; do
-    if [[ "$dir" != *"/Library" ]]; then
+    if [[ "$dir" != *"/Library" ]] && [[ "$dir" != *"/transfer_library" ]]; then
 	     echo $dir
 	     cp -rp "$dir" "$destination"
     fi
@@ -76,7 +81,7 @@ if [[ "$yoes" == "y" ]]; then
     mkdir -m777 -p "$destination/transfer_library"
     tar -C "$destination/transfer_library" -xf "$destination/library.tar"
     chflags -R nohidden "$destination/transfer_library"
-    
+
     echo "Deleting library.tar... "
     rm "$destination/library.tar"
     # Grants permissions to all staff users (including admin account) on computer

@@ -6,13 +6,12 @@
 #List all static IPs and DHCP with the form 129.105.3.xxx
 
 if [ -z "$1" ]
-    then
-        read -p "Enter subnet (e.g. 129.105.3): " subnet
-    else
-        subnet=$1
+  then
+    read -p "Enter subnet (e.g. 129.105.3): " subnet
+  else
+    subnet=$1
 fi
 
-for i in {1..255}
-do
-    nslookup "$subnet.$i"
+for i in {1..255}; do
+  nslookup "$subnet.$i"
 done | grep 'name = ' | awk -F '[.=]' '{print $1 $7}'

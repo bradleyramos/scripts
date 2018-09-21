@@ -30,11 +30,10 @@ printf \\a
 i=1
 
 
-read -p "Add a printer? (y/n): " noyes
-while [[ "$noyes" == "y" ]]; do
+read -p "Add printers? (y/n): " noyes
+if [ "$noyes" == "y" ]; then
 	sh install_printer.sh
-	read -p "Add a printer? (y/n): " noyes
-done
+fi
 
 read -p "Launch Programs to be updated? (y/n): " noyes
 if [[ "$noyes" == "y" ]]; then

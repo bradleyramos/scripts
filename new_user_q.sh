@@ -1,7 +1,8 @@
 #!/bin/bash
-#Usage: sudo sh new_user.sh
+#Usage: sudo sh new_user_q.sh
 #Creates a new user, prompted on command line.
-#Alternate usage: sudo sh new_user.sh [fullname] [username] [uid] [password]
+#DOES NOT allow user to unlock computer by filevault
+#Alternate usage: sudo sh new_user_q.sh [fullname] [username] [uid] [password]
 
 #The credentials at the very end it wants are the admin password and the user
 #password set just prior.
@@ -47,9 +48,9 @@ dscl . -passwd /Users/$username $changeme
 #Elevate to admin
 dscl . -append /Groups/admin GroupMembership $username
 
-read -p "$(echo "Allow unlock by Filevault?\nYou will enter admin username (except on older models), admin password, then change,me. (y/n): ")" neyo
-#Allows user to unlock by filevault, needs admin password
-fdesetup add -usertoadd $username
+# read -p "$(echo "Allow unlock by Filevault?\nYou will enter admin username (except on older models), admin password, then change,me. (y/n): ")" neyo
+# #Allows user to unlock by filevault, needs admin password
+# fdesetup add -usertoadd $username
 
 #Final output for setup.sh
 echo "$username"
