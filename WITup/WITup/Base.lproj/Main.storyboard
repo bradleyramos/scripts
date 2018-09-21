@@ -727,6 +727,7 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="runBash:" target="BrO-UG-U5Z" id="Bxi-8r-RbY"/>
+                                    <segue destination="BZE-tX-bQR" kind="popover" popoverAnchorView="Trm-br-lme" popoverBehavior="t" preferredEdge="maxY" id="fTn-we-AaH"/>
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hOB-Fh-bPL">
@@ -804,19 +805,9 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vL3-xv-LI6">
-                                <rect key="frame" x="20" y="0.0" width="348" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" id="kV0-Ii-498">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="dirLabel" destination="vL3-xv-LI6" id="2Ee-Rp-0iN"/>
                         <outlet property="firstName" destination="hOB-Fh-bPL" id="F88-8r-uZh"/>
                         <outlet property="lastName" destination="4y3-4z-Qye" id="RcN-G8-PBt"/>
                         <outlet property="launchUpdates" destination="9zm-3W-xga" id="7ux-IJ-sYD"/>
@@ -830,6 +821,48 @@
                 <customObject id="Vbi-l3-a8m" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-427" y="670"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Nj8-Ys-nVL">
+            <objects>
+                <viewController id="BZE-tX-bQR" sceneMemberID="viewController">
+                    <view key="view" id="iv7-yo-ytd">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O7p-4N-maP">
+                                <rect key="frame" x="90" y="181" width="271" height="119"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="HEY!!!" id="HBs-AO-E73">
+                                    <font key="font" metaFont="system" size="100"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qZA-Qi-aHm">
+                                <rect key="frame" x="107" y="31" width="236" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="THIS IS not DONE AUTOMATICALLY" id="n9Z-3H-lpo">
+                                    <font key="font" metaFont="system" size="29"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LpM-QI-qxR">
+                                <rect key="frame" x="50" y="117" width="350" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Make sure that you enable filevault permissions for your new user!!" id="tvx-Py-rBj">
+                                    <font key="font" metaFont="system" size="23"/>
+                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="tw5-UO-KYD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-428" y="1038"/>
         </scene>
         <!--WELCOME-->
         <scene sceneID="hIz-AP-VOD">
@@ -849,7 +882,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QvX-tY-JfO">
-                                <rect key="frame" x="82" y="58" width="159" height="32"/>
+                                <rect key="frame" x="161" y="79" width="159" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Setup with Transfer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Z94-jg-cLZ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -859,22 +892,19 @@
                                     <segue destination="BrO-UG-U5Z" kind="show" id="jB4-RG-wAf"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXe-qx-nHY">
-                                <rect key="frame" x="243" y="58" width="155" height="32"/>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cKh-vM-hwA">
+                                <rect key="frame" x="18" y="20" width="444" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Setup w/o Transfer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UDT-Eg-rao">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Did u not wanna transfer data? too bad. Setup w/o transfer coming soon." id="2wV-rQ-nd0">
                                     <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <segue destination="6G0-gq-kLS" kind="show" id="KeS-rS-iML"/>
-                                </connections>
-                            </button>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="withTransfer" destination="QvX-tY-JfO" id="FHO-yY-3jz"/>
-                        <outlet property="withoutTransfer" destination="XXe-qx-nHY" id="fgb-MB-rkc"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
