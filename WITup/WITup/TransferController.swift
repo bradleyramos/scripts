@@ -17,13 +17,14 @@ class TransferController: NSViewController {
     @IBOutlet weak var libraryFiles: NSButton!
     @IBOutlet weak var launchUpdates: NSButton!
     @IBOutlet weak var runCommands: NSButton!
+    @IBOutlet weak var dirLabel: NSTextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
     }
-    @IBAction func selectDirectory(_ sender: Any) {
+    @IBAction func selectDirectory(_ sender: NSButton) {
         
         let dialog = NSOpenPanel();
         
@@ -49,7 +50,7 @@ class TransferController: NSViewController {
         
     }
     
-    // Set up bash scripting
+    // Set up bash commands
     @discardableResult
     func shell(_ args: String...) -> Int32 {
         let task = Process()
@@ -62,11 +63,11 @@ class TransferController: NSViewController {
     
     var fileURL = FileManager.default.homeDirectoryForCurrentUser;
     
-    @IBAction func runSetup(_ sender: Any) {
+    @IBAction func runBash(_ sender: Any) {
         //create path to simple_setup.sh
-        fileURL.appendPathComponent("Desktop");
-        fileURL.appendPathComponent("github");
-        fileURL.appendPathComponent("simple_setup")
+        fileURL.appendPathComponent("Downloads");
+        fileURL.appendPathComponent("scripts-GUI");
+        fileURL.appendPathComponent("gui_setup")
         fileURL.appendPathExtension("sh")
         let path = fileURL.path
         
@@ -91,8 +92,13 @@ class TransferController: NSViewController {
             print("mixed")
         default: break
         }
-        shell("sudo","sh",path,firstName.stringValue,lastName.stringValue,sourceField.stringValue,lib,launch)
-    }
+        
+        // Run script
+        var command = String()
+        command = "sudo" + " sh" + path + firstName.stringValue + " " + lastName.stringValue + " " + sourceField.stringValue + " " + lib + " " + launch
 
+        NSAppleScript(source: "do shell script \"" + command + "\" with administrator " +
+            "privileges")!.executeAndReturnError(nil)
+    }
 
 }
