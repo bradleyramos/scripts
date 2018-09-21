@@ -65,7 +65,7 @@ class TransferController: NSViewController {
     @IBAction func runBash(_ sender: Any) {
         //create path to simple_setup.sh
         fileURL.appendPathComponent("Downloads");
-        fileURL.appendPathComponent("scripts-GUI");
+        fileURL.appendPathComponent("scripts-master");
         fileURL.appendPathComponent("gui_setup")
         fileURL.appendPathExtension("sh")
         let path = fileURL.path
