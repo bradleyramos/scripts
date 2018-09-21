@@ -9,7 +9,9 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
+    @IBOutlet weak var withTransfer: NSButton!
+    @IBOutlet weak var withoutTransfer: NSButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
