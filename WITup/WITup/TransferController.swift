@@ -95,7 +95,7 @@ class TransferController: NSViewController {
         
         // Run script
         var command = String()
-        command = "sudo" + " sh" + path + " " + firstName.stringValue + " " + lastName.stringValue + " " + sourceField.stringValue + " " + lib + " " + launch
+        command = "sudo" + " sh " + path + " " + firstName.stringValue + " " + lastName.stringValue + " " + sourceField.stringValue + " " + lib + " " + launch
         dirLabel.stringValue = command
         NSAppleScript(source: "do shell script \"" + command + "\" with administrator " +
             "privileges")!.executeAndReturnError(nil)
