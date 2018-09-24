@@ -95,7 +95,7 @@ class TransferController: NSViewController {
         
         // Run script
         var command = String()
-        command = "sudo" + " sh " + path + " " + firstName.stringValue + " " + lastName.stringValue + " " + sourceField.stringValue + " " + lib + " " + launch
+        command = "sudo" + " sh " + path + " " + firstName.stringValue + " " + lastName.stringValue + " \"" + sourceField.stringValue + "\" " + lib + " " + launch
         runLabel.stringValue = command
         //"Please remember to enable filevault permissions for new user"
         NSAppleScript(source: "do shell script \"" + command + "\" with administrator " +
