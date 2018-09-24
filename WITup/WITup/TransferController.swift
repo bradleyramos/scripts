@@ -17,6 +17,7 @@ class TransferController: NSViewController {
     @IBOutlet weak var libraryFiles: NSButton!
     @IBOutlet weak var launchUpdates: NSButton!
     @IBOutlet weak var runCommands: NSButton!
+    @IBOutlet weak var runLabel: NSTextField!
     
     
     override func viewDidLoad() {
@@ -94,6 +95,7 @@ class TransferController: NSViewController {
         
         // Run script
         var command = String()
+        runLabel.stringValue = "Please wait while scripts run..."
         command = "sudo" + " sh " + path + " " + firstName.stringValue + " " + lastName.stringValue + " " + sourceField.stringValue + " " + lib + " " + launch
         NSAppleScript(source: "do shell script \"" + command + "\" with administrator " +
             "privileges")!.executeAndReturnError(nil)
