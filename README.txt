@@ -49,3 +49,13 @@ Vestion 1.1
     Asks only once for admin password
     Downloads faster by taking all from cron job
     repeats possible with just script
+
+Version 2.0
+  gui_setup.sh
+    Essentially the same as simple_setup.sh, but allows you to input arguments before execution
+  WITup BETA
+    GUI application to run gui_setup.sh
+    Only allows for setup WITH data transfer
+    Cannot enable filevault automatically
+  WITup
+    xcode directory to edit code for WITup application
