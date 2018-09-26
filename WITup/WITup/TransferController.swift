@@ -101,7 +101,7 @@ class TransferController: NSViewController {
         runLabel.stringValue = command
         //"Please remember to enable filevault permissions for new user"
         NSAppleScript(source: "set pathWithSpaces to \"" + command + "\"")!.executeAndReturnError(nil)
-        NSAppleScript(source: "do shell script \"sudo sh \" & quoted form of pathWithSpaces with administrator " +
+        NSAppleScript(source: "do shell script \"sudo sh \" & quoted form of pathWithSpaces " + "with administrator " +
             "privileges")!.executeAndReturnError(nil)
     }
 
