@@ -96,12 +96,12 @@ class TransferController: NSViewController {
         // Run script
         var command = String()
         let oldSource = sourceField.stringValue
-        let newSource = oldSource.replacingOccurrences(of: " ", with: "\\ ", options: .literal, range: nil)
-        command = "sudo" + " sh " + path + " " + firstName.stringValue + " " + lastName.stringValue + " " + newSource + " " + lib + " " + launch
+        //let newSource = oldSource.replacingOccurrences(of: " ", with: "\\ ", options: .literal, range: nil)
+        command = path + " " + firstName.stringValue + " " + lastName.stringValue + " " + oldSource + " " + lib + " " + launch
         runLabel.stringValue = command
         //"Please remember to enable filevault permissions for new user"
         NSAppleScript(source: "set pathWithSpaces to \"" + command + "\"")!.executeAndReturnError(nil)
-        NSAppleScript(source: "do shell script quoted form of pathWithSpaces with administrator " +
+        NSAppleScript(source: "do shell script \"sudo sh \" & quoted form of pathWithSpaces with administrator " +
             "privileges")!.executeAndReturnError(nil)
     }
 
