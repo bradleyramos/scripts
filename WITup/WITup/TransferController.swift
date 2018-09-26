@@ -69,7 +69,8 @@ class TransferController: NSViewController {
         fileURL.appendPathComponent("scripts-master");
         fileURL.appendPathComponent("gui_setup")
         fileURL.appendPathExtension("sh")
-        let path = fileURL.path
+        //let path = fileURL.path
+        let path = "/Users/admin/Downloads/scripts-master/gui_setup.sh"
         
         // checkboxes
         var lib = String()
@@ -97,12 +98,23 @@ class TransferController: NSViewController {
         var command = String()
         let oldSource = sourceField.stringValue
         //let newSource = oldSource.replacingOccurrences(of: " ", with: "\\ ", options: .literal, range: nil)
-        command = path + " " + firstName.stringValue + " " + lastName.stringValue + " " + oldSource + " " + lib + " " + launch
+        command = path + " " + firstName.stringValue + " " + lastName.stringValue + " '" + oldSource + "' " + lib + " " + launch
         runLabel.stringValue = command
+        //command = "say hello"
         //"Please remember to enable filevault permissions for new user"
-        NSAppleScript(source: "set pathWithSpaces to \"" + command + "\"")!.executeAndReturnError(nil)
-        NSAppleScript(source: "do shell script \"sudo sh \" & quoted form of pathWithSpaces & with administrator " +
-            "privileges")!.executeAndReturnError(nil)
+        
+        var error: NSDictionary?
+        
+        let scommand = "do shell script \"sudo sh " + command + "\" with administrator " + "privileges"
+        
+        runLabel.stringValue = scommand
+        NSAppleScript(source: scommand)!.executeAndReturnError(&error)
+        
+        //NSAppleScript(source: "set pathWithSpaces to \"" + command + "\"\ndo shell script & quoted form of pathWithSpaces with administrator " +
+        //    "privileges")!.executeAndReturnError(&error)
+        
+        
+        print("error2: \(String(describing: error))")
     }
 
 }
