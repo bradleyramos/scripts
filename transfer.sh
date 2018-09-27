@@ -57,9 +57,9 @@ fi
 mkdir -m777 -p "$destination"
 
 for dir in "$fileLoc/"*; do
-    if [[ "$dir" != *"/Library" ]] && [[ "$dir" != *"/transfer_library" ]]; then
+    if [[ "$dir" != *"/Library" ]]; then
 	     echo $dir
-	     cp -rp "$dir" "$destination"
+	     cp -Rp "$dir" "$destination"
     fi
 done
 
@@ -67,9 +67,9 @@ mkdir -m777 -p "$destination/Library"
 mkdir -m777 -p "$destination/Library/Application Support"
 
 echo "Transferring internet profiles... "
-cp -rp "$fileLoc/Library/Safari" "$destination/Library"
-cp -rp "$fileLoc/Library/Application Support/Google" "$destination/Library/Application Support"
-cp -rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support"
+cp -Rp "$fileLoc/Library/Safari" "$destination/Library"
+cp -Rp "$fileLoc/Library/Application Support/Google" "$destination/Library/Application Support"
+cp -Rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support"
 
 # Creates tar file containing Library, untars the file into "transfer_library" and deletes the tar
 

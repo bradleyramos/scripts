@@ -1,30 +1,27 @@
 //
-//  TransferController.swift
+//  TransferOnlyController.swift
 //  WITup
 //
-//  Created by Bradley Ramos on 9/20/18.
+//  Created by Bradley Ramos on 9/26/18.
 //  Copyright © 2018 Weinberg IT. All rights reserved.
 //
 
 import Cocoa
 import Foundation
 
-class TransferController: NSViewController {
-    @IBOutlet weak var sourceButton: NSButton!
+class TransferOnlyController: NSViewController {
     @IBOutlet weak var sourceField: NSTextField!
-    @IBOutlet weak var firstName: NSTextField!
-    @IBOutlet weak var lastName: NSTextField!
+    @IBOutlet weak var sourceButton: NSButton!
+    @IBOutlet weak var destinationField: NSTextField!
+    @IBOutlet weak var destinationButton: NSButton!
     @IBOutlet weak var libraryFiles: NSButton!
-    @IBOutlet weak var launchUpdates: NSButton!
-    @IBOutlet weak var runCommands: NSButton!
-    @IBOutlet weak var runLabel: NSTextField!
-    
+    @IBOutlet weak var runButton: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
     }
-    @IBAction func selectDirectory(_ sender: NSButton) {
+    @IBAction func sourceClicked(_ sender: Any) {
         
         let dialog = NSOpenPanel();
         
@@ -49,25 +46,39 @@ class TransferController: NSViewController {
         }
         
     }
-    
-    // Set up bash commands
-    @discardableResult
-    func shell(_ args: String...) -> Int32 {
-        let task = Process()
-        task.launchPath = "/usr/bin/env"
-        task.arguments = args
-        task.launch()
-        task.waitUntilExit()
-        return task.terminationStatus
+    @IBAction func destinationClicked(_ sender: Any) {
+        
+        let dialog = NSOpenPanel();
+        
+        dialog.title                   = "Choose a directory";
+        dialog.showsResizeIndicator    = true;
+        dialog.showsHiddenFiles        = true;
+        dialog.canChooseDirectories    = true;
+        dialog.canCreateDirectories    = true;
+        dialog.allowsMultipleSelection = false;
+        dialog.canChooseFiles          = false;
+        
+        if (dialog.runModal() == NSApplication.ModalResponse.OK) {
+            let result = dialog.url // Pathname of the file
+            
+            if (result != nil) {
+                let path = result!.path
+                destinationField.stringValue = path
+            }
+        } else {
+            // User clicked on "Cancel"
+            return
+        }
+        
     }
     
-    var fileURL = FileManager.default.homeDirectoryForCurrentUser;
+    var fileURL = FileManager.default.homeDirectoryForCurrentUser
     
-    @IBAction func runBash(_ sender: Any) {
+    @IBAction func runClicked(_ sender: Any) {
         //create path to simple_setup.sh
         fileURL.appendPathComponent("Downloads");
         fileURL.appendPathComponent("scripts-master");
-        fileURL.appendPathComponent("gui_setup")
+        fileURL.appendPathComponent("transfer")
         fileURL.appendPathExtension("sh")
         let path = fileURL.path
         
@@ -82,35 +93,20 @@ class TransferController: NSViewController {
             print("mixed")
         default: break
         }
-        var launch = String()
-        switch launchUpdates.state {
-        case .on:
-            launch = "y"
-        case .off:
-            launch = "n"
-        case .mixed:
-            print("mixed")
-        default: break
-        }
         
         // Run script
         var command = String()
-        let oldSource = sourceField.stringValue
-        //let newSource = oldSource.replacingOccurrences(of: " ", with: "\\ ", options: .literal, range: nil)
-        command = path + " " + firstName.stringValue + " " + lastName.stringValue + " '" + oldSource + "' " + lib + " " + launch
-        runLabel.stringValue = "Please remember to enable filevault permissions for new user"
+        let source = sourceField.stringValue
+        let destination = destinationField.stringValue
+        command = path + " " + destination + " " + "admin" + " '" + source + "' " + lib
         
         var error: NSDictionary?
-        
         let scommand = "do shell script \"sudo sh " + command + "\" with administrator " + "privileges"
         
         NSAppleScript(source: scommand)!.executeAndReturnError(&error)
         
-        //NSAppleScript(source: "set pathWithSpaces to \"" + command + "\"\ndo shell script & quoted form of pathWithSpaces with administrator " +
-        //    "privileges")!.executeAndReturnError(&error)
-        
-        
         print("error2: \(String(describing: error))")
     }
-
+    
+    
 }
