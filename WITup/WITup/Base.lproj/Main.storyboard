@@ -835,31 +835,31 @@
         <!--Setup Only-->
         <scene sceneID="N5x-b8-Fj0">
             <objects>
-                <viewController title="Setup Only" id="cEf-wj-oNF" sceneMemberID="viewController">
+                <viewController title="Setup Only" id="cEf-wj-oNF" customClass="SetupOnlyController" customModule="WITup" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="DBG-cL-AQM">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XPQ-dM-rwy">
-                                <rect key="frame" x="80" y="205" width="37" height="17"/>
+                                <rect key="frame" x="136" y="192" width="77" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="w52-x9-JVM">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="First Name: " id="w52-x9-JVM">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YF0-CO-Wll">
-                                <rect key="frame" x="82" y="163" width="37" height="17"/>
+                                <rect key="frame" x="136" y="152" width="76" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="930-Ej-7ci">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Last Name: " id="930-Ej-7ci">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YxS-vh-BdJ">
-                                <rect key="frame" x="147" y="203" width="96" height="22"/>
+                                <rect key="frame" x="216" y="189" width="96" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="RLN-7U-hcm">
                                     <font key="font" metaFont="system"/>
@@ -868,7 +868,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CFI-kN-AAa">
-                                <rect key="frame" x="147" y="160" width="96" height="22"/>
+                                <rect key="frame" x="216" y="149" width="96" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="qBN-VL-rZY">
                                     <font key="font" metaFont="system"/>
@@ -877,15 +877,15 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZSW-Am-w7X">
-                                <rect key="frame" x="165" y="71" width="61" height="18"/>
+                                <rect key="frame" x="161" y="88" width="128" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="Check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Q9i-JN-E0D">
+                                <buttonCell key="cell" type="check" title="Launch Updates?" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Q9i-JN-E0D">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8dh-Yj-qiB">
-                                <rect key="frame" x="171" y="272" width="87" height="17"/>
+                                <rect key="frame" x="182" y="272" width="87" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="SETUP ONLY:" id="6Jm-5e-3a2">
                                     <font key="font" usesAppearanceFont="YES"/>
@@ -893,8 +893,24 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6WJ-zY-C0v">
+                                <rect key="frame" x="368" y="13" width="68" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="RUN" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nl5-4x-qaO">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="runButtonClicked:" target="cEf-wj-oNF" id="dLs-mM-6fS"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="firstNameBox" destination="YxS-vh-BdJ" id="tsE-f3-0VP"/>
+                        <outlet property="lastNameBox" destination="CFI-kN-AAa" id="OJv-ua-L6u"/>
+                        <outlet property="updates" destination="ZSW-Am-w7X" id="nZ7-m5-xub"/>
+                    </connections>
                 </viewController>
                 <customObject id="mpo-6X-QxY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
