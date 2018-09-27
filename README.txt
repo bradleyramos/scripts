@@ -59,3 +59,9 @@ Version 2.0
     Cannot enable filevault automatically
   WITup
     xcode directory to edit code for WITup application
+    
+Version 2.1
+  WITup BETA
+    Options for setup only and transfer only
+  gui_setup_notransfer.sh
+    Commented out the transfer section of setup. Used in WITup BETA setup only.
