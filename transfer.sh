@@ -57,7 +57,7 @@ fi
 mkdir -m777 -p "$destination"
 
 for dir in "$fileLoc/"*; do
-    if [[ "$dir" != *"/Library" ]] && [[ "$dir" != *"/transfer_library" ]]; then
+    if [[ "$dir" != *"/Library" ]]; then
 	     echo $dir
 	     cp -Rp "$dir" "$destination"
     fi
