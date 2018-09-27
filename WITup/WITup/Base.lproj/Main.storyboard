@@ -934,6 +934,9 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="print:" target="9gK-oX-0Iu" id="6iA-nX-nyF"/>
+                                </connections>
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LKH-17-Tan">
                                 <rect key="frame" x="35" y="129" width="217" height="22"/>
@@ -943,6 +946,9 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="print:" target="HH6-iy-E3o" id="h6O-33-MYy"/>
+                                </connections>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9gK-oX-0Iu">
                                 <rect key="frame" x="273" y="200" width="136" height="32"/>
@@ -963,7 +969,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="destinationClicked:" target="6G0-gq-kLS" id="Ea9-tg-1mf"/>
+                                    <action selector="destinationClicked:" target="6G0-gq-kLS" id="F4g-9E-lvb"/>
                                 </connections>
                             </button>
                         </subviews>
