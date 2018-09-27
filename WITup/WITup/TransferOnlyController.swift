@@ -63,7 +63,7 @@ class TransferOnlyController: NSViewController {
             
             if (result != nil) {
                 let path = result!.path
-                sourceField.stringValue = path
+                destinationField.stringValue = path
             }
         } else {
             // User clicked on "Cancel"
