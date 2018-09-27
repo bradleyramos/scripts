@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		248120B121541495002AF9D1 /* TransferController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248120B021541495002AF9D1 /* TransferController.swift */; };
+		24A0B53D215C33CF0097E065 /* TransferOnlyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A0B53C215C33CF0097E065 /* TransferOnlyController.swift */; };
 		24F2543A21430ADB00A0E120 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2543921430ADB00A0E120 /* AppDelegate.swift */; };
 		24F2543C21430ADB00A0E120 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F2543B21430ADB00A0E120 /* ViewController.swift */; };
 		24F2543E21430ADC00A0E120 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F2543D21430ADC00A0E120 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		248120B021541495002AF9D1 /* TransferController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferController.swift; sourceTree = "<group>"; };
+		24A0B53C215C33CF0097E065 /* TransferOnlyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferOnlyController.swift; sourceTree = "<group>"; };
 		24F2543621430ADB00A0E120 /* WITup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WITup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F2543921430ADB00A0E120 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24F2543B21430ADB00A0E120 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				24F2543F21430ADC00A0E120 /* Main.storyboard */,
 				248120B021541495002AF9D1 /* TransferController.swift */,
 				24F2544221430ADC00A0E120 /* Info.plist */,
+				24A0B53C215C33CF0097E065 /* TransferOnlyController.swift */,
 				24F2544321430ADC00A0E120 /* WITup.entitlements */,
 			);
 			path = WITup;
@@ -259,6 +262,7 @@
 			files = (
 				248120B121541495002AF9D1 /* TransferController.swift in Sources */,
 				24F2543C21430ADB00A0E120 /* ViewController.swift in Sources */,
+				24A0B53D215C33CF0097E065 /* TransferOnlyController.swift in Sources */,
 				24F2543A21430ADB00A0E120 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
