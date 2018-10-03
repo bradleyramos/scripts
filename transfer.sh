@@ -48,6 +48,8 @@ done
 # Used later to create transfer_library file
 
 if [ -z "$4" ]; then
+  echo "You probably want to transfer Library files just in case."
+  echo "However, if this is the second transfer on the same dataset, use no."
   read -p "Would you like to transfer Library files? (y/n): " yoes
 else
   yoes=$4
