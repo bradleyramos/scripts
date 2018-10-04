@@ -98,7 +98,7 @@ class TransferOnlyController: NSViewController {
         var command = String()
         let source = sourceField.stringValue
         let destination = destinationField.stringValue
-        command = path + " " + destination + " " + "admin" + " '" + source + "' " + lib
+        command = path + " '" + destination + "' " + "admin" + " '" + source + "' " + lib
         
         var error: NSDictionary?
         let scommand = "do shell script \"sudo sh " + command + "\" with administrator " + "privileges"
