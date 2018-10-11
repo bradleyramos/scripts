@@ -59,7 +59,7 @@ fi
 mkdir -m777 -p "$destination"
 
 for dir in "$fileLoc/"*; do
-    if [ "$dir" != *"/Library" ] && [ "$dir" != *"/Box Sync" ] && [" $dir" != *"/Dropbox" ]; then
+    if [[ "$dir" != *"/Library" ] && [ "$dir" != *"/Box Sync" ] && [" $dir" != *"/Dropbox" ]]; then
 	     echo $dir
 	     cp -Rp "$dir" "$destination"
     fi
