@@ -59,10 +59,10 @@ fi
 mkdir -m777 -p "$destination"
 
 for dir in "$fileLoc/"*; do
-    if [[ "$dir" != *"/Library" ]]; then
-	     echo $dir
-	     cp -Rp "$dir" "$destination"
-    fi
+  if [[ "$dir" != *"/Library" ]] && [[ "$dir" != *"/Box Sync" ]] && [[ "$dir" != *"/Dropbox" ]]; then
+   echo $dir
+   cp -Rp "$dir" "$destination"
+ fi
 done
 
 mkdir -m777 -p "$destination/Library"
@@ -73,22 +73,32 @@ cp -Rp "$fileLoc/Library/Safari" "$destination/Library"
 cp -Rp "$fileLoc/Library/Application Support/Google" "$destination/Library/Application Support"
 cp -Rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support"
 
-# Creates tar file containing Library, untars the file into "transfer_library" and deletes the tar
 
+#-R handles symbolic and hard links properly (Old blocker on Library files)
+#Files still not put in ~/Library for compatibility issues
 if [[ "$yoes" == "y" ]]; then
-    echo "Archiving Library files... "
-    tar -cf "$destination/library.tar" "$fileLoc/Library"
-
-    echo "Extracting Library files to transfer_library... "
-    mkdir -m777 -p "$destination/transfer_library"
-    tar -C "$destination/transfer_library" -xf "$destination/library.tar"
-    chflags -R nohidden "$destination/transfer_library"
-
-    echo "Deleting library.tar... "
-    rm "$destination/library.tar"
-    # Grants permissions to all staff users (including admin account) on computer
-    chmod -R 770 "$destination/transfer_library"
+  echo "Moving Library folder to transfer_library"
+  cp -Rp "$fileLoc/Library" "$destination/transfer_library"
+  chflags -R nohidden "$destination/transfer_library"
+  chmod -R 777 "$destination/transfer_library"
 fi
+
+# Tar creation disabled
+# Creates tar file containing Library, untars the file into "transfer_library" and deletes the tar
+# if [[ "$yoes" == "y" ]]; then
+#     echo "Archiving Library files... "
+#     tar -cf "$destination/library.tar" "$fileLoc/Library"
+#
+#     echo "Extracting Library files to transfer_library... "
+#     mkdir -m777 -p "$destination/transfer_library"
+#     tar -C "$destination/transfer_library" -xf "$destination/library.tar"
+#     chflags -R nohidden "$destination/transfer_library"
+#
+#     echo "Deleting library.tar... "
+#     rm "$destination/library.tar"
+#     # Grants permissions to all staff users (including admin account) on computer
+#     chmod -R 770 "$destination/transfer_library"
+# fi
 
 if [ -z "$2" ]; then
     read -p "Intended owner username (or Ctrl + C to skip): " fUser
