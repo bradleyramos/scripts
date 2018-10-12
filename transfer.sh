@@ -59,10 +59,10 @@ fi
 mkdir -m777 -p "$destination"
 
 for dir in "$fileLoc/"*; do
-    if [[ "$dir" != *"/Library" ]] && [[ "$dir" != *"/Box Sync" ]] && [[ "$dir" != *"/Dropbox" ]]; then
-	     echo $dir
-	     cp -Rp "$dir" "$destination"
-    fi
+  if [[ "$dir" != *"/Library" ]] && [[ "$dir" != *"/Box Sync" ]] && [[ "$dir" != *"/Dropbox" ]]; then
+   echo $dir
+   cp -Rp "$dir" "$destination"
+ fi
 done
 
 mkdir -m777 -p "$destination/Library"
@@ -74,6 +74,13 @@ cp -Rp "$fileLoc/Library/Application Support/Google" "$destination/Library/Appli
 cp -Rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support"
 
 # Creates tar file containing Library, untars the file into "transfer_library" and deletes the tar
+
+if [[ "$yoes" == "y" ]]; then
+  echo "Moving Library folder to transfer_library"
+  cp -Rp "$fileLoc/Library" "$destination/transfer_library"
+  chflags -R nohidden "$destination/transfer_library"
+  chmod -R 777 "$destination/transfer_library" 
+fi
 
 # Tar creation disabled
 # if [[ "$yoes" == "y" ]]; then
