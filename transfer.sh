@@ -73,16 +73,17 @@ cp -Rp "$fileLoc/Library/Safari" "$destination/Library"
 cp -Rp "$fileLoc/Library/Application Support/Google" "$destination/Library/Application Support"
 cp -Rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support"
 
-# Creates tar file containing Library, untars the file into "transfer_library" and deletes the tar
 
+#-R handles symbolic and hard links properly
 if [[ "$yoes" == "y" ]]; then
   echo "Moving Library folder to transfer_library"
   cp -Rp "$fileLoc/Library" "$destination/transfer_library"
   chflags -R nohidden "$destination/transfer_library"
-  chmod -R 777 "$destination/transfer_library" 
+  chmod -R 777 "$destination/transfer_library"
 fi
 
 # Tar creation disabled
+# Creates tar file containing Library, untars the file into "transfer_library" and deletes the tar
 # if [[ "$yoes" == "y" ]]; then
 #     echo "Archiving Library files... "
 #     tar -cf "$destination/library.tar" "$fileLoc/Library"
