@@ -74,7 +74,8 @@ cp -Rp "$fileLoc/Library/Application Support/Google" "$destination/Library/Appli
 cp -Rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support"
 
 
-#-R handles symbolic and hard links properly
+#-R handles symbolic and hard links properly (Old blocker on Library files)
+#Files still not put in ~/Library for compatibility issues
 if [[ "$yoes" == "y" ]]; then
   echo "Moving Library folder to transfer_library"
   cp -Rp "$fileLoc/Library" "$destination/transfer_library"
