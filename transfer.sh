@@ -75,20 +75,21 @@ cp -Rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Appl
 
 # Creates tar file containing Library, untars the file into "transfer_library" and deletes the tar
 
-if [[ "$yoes" == "y" ]]; then
-    echo "Archiving Library files... "
-    tar -cf "$destination/library.tar" "$fileLoc/Library"
-
-    echo "Extracting Library files to transfer_library... "
-    mkdir -m777 -p "$destination/transfer_library"
-    tar -C "$destination/transfer_library" -xf "$destination/library.tar"
-    chflags -R nohidden "$destination/transfer_library"
-
-    echo "Deleting library.tar... "
-    rm "$destination/library.tar"
-    # Grants permissions to all staff users (including admin account) on computer
-    chmod -R 770 "$destination/transfer_library"
-fi
+# Tar creation disabled
+# if [[ "$yoes" == "y" ]]; then
+#     echo "Archiving Library files... "
+#     tar -cf "$destination/library.tar" "$fileLoc/Library"
+#
+#     echo "Extracting Library files to transfer_library... "
+#     mkdir -m777 -p "$destination/transfer_library"
+#     tar -C "$destination/transfer_library" -xf "$destination/library.tar"
+#     chflags -R nohidden "$destination/transfer_library"
+#
+#     echo "Deleting library.tar... "
+#     rm "$destination/library.tar"
+#     # Grants permissions to all staff users (including admin account) on computer
+#     chmod -R 770 "$destination/transfer_library"
+# fi
 
 if [ -z "$2" ]; then
     read -p "Intended owner username (or Ctrl + C to skip): " fUser
