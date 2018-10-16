@@ -13,6 +13,7 @@ class SetupOnlyController: NSViewController {
     @IBOutlet weak var firstNameBox: NSTextField!
     @IBOutlet weak var lastNameBox: NSTextField!
     @IBOutlet weak var updates: NSButton!
+    @IBOutlet weak var warningLabel: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,7 @@ class SetupOnlyController: NSViewController {
         // Run script
         var command = String()
         command = path + " " + firstNameBox.stringValue + " " + lastNameBox.stringValue + " '" + "fake unused source" + "' " + "n" + " " + launch
+        warningLabel.stringValue = "Please remember to enable filevault permissions for new user"
         
         var error: NSDictionary?
         let scommand = "do shell script \"sudo sh " + command + "\" with administrator " + "privileges"
