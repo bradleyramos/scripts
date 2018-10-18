@@ -69,6 +69,8 @@ Version 2.1
 Version 2.2
   WITup app
     Contains executable to run GUI
-    No longer in BETA
+    Allows for spaces in client first and last names
+    Can run application twice in a row without things breaking
+    Proven functional -- no longer in BETA testing
   WITup
     Cleaned up extra dev environment files
