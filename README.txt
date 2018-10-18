@@ -65,3 +65,10 @@ Version 2.1
     Options for setup only and transfer only
   gui_setup_notransfer.sh
     Commented out the transfer section of setup. Used in WITup BETA setup only.
+    
+Version 2.2
+  WITup app
+    Contains executable to run GUI
+    No longer in BETA
+  WITup
+    Cleaned up extra dev environment files
