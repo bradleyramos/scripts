@@ -20,9 +20,8 @@ class SetupOnlyController: NSViewController {
         // Do view setup here.
     }
     
-    var fileURL = FileManager.default.homeDirectoryForCurrentUser;
-    
     @IBAction func runButtonClicked(_ sender: Any) {
+        var fileURL = FileManager.default.homeDirectoryForCurrentUser
         //create path to gui_setup_notransfer.sh
         fileURL.appendPathComponent("Downloads");
         fileURL.appendPathComponent("scripts-master");

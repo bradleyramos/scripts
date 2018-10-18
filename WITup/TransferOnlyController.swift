@@ -72,9 +72,8 @@ class TransferOnlyController: NSViewController {
         
     }
     
-    var fileURL = FileManager.default.homeDirectoryForCurrentUser
-    
     @IBAction func runClicked(_ sender: Any) {
+        var fileURL = FileManager.default.homeDirectoryForCurrentUser
         //create path to simple_setup.sh
         fileURL.appendPathComponent("Downloads");
         fileURL.appendPathComponent("scripts-master");

@@ -61,9 +61,8 @@ class TransferController: NSViewController {
         return task.terminationStatus
     }
     
-    var fileURL = FileManager.default.homeDirectoryForCurrentUser;
-    
     @IBAction func runBash(_ sender: Any) {
+        var fileURL = FileManager.default.homeDirectoryForCurrentUser;
         //create path to simple_setup.sh
         fileURL.appendPathComponent("Downloads");
         fileURL.appendPathComponent("scripts-master");
