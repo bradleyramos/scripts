@@ -50,7 +50,11 @@ done
 if [ -z "$4" ]; then
   echo "You probably want to transfer Library files just in case."
   echo "However, if this is the second transfer on the same dataset, use no."
-  read -p "Would you like to transfer Library files? (y/n): " yoes
+  if [ -d "$fileLoc/Library" ]; then
+    read -p "Would you like to transfer Library files? (y/n): " yoes
+  else
+    yoes="n"
+  fi
 else
   yoes=$4
 fi
@@ -65,14 +69,23 @@ for dir in "$fileLoc/"*; do
  fi
 done
 
-mkdir -m777 -p "$destination/Library"
-mkdir -m777 -p "$destination/Library/Application Support"
+if [ -d "$fileLoc/Library" ]; then
+  mkdir -m777 -p "$destination/Library"
+  mkdir -m777 -p "$destination/Library/Application Support"
+fi
 
 echo "Transferring internet profiles... "
-cp -Rp "$fileLoc/Library/Safari" "$destination/Library"
-cp -Rp "$fileLoc/Library/Application Support/Google" "$destination/Library/Application Support"
-cp -Rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support"
+if [ -d "$fileLoc/Library/Safari" ]; then
+  cp -Rp "$fileLoc/Library/Safari" "$destination/Library"
+fi
 
+if [ -d "$fileLoc/Library/Application Support/Google" ]; then
+  cp -Rp "$fileLoc/Library/Application Support/Google" "$destination/Library/Application Support"
+fi
+
+if [ -d "$fileLoc/Library/Application Support/Firefox" ]; then
+  cp -Rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support"
+fi
 
 #-R handles symbolic and hard links properly (Old blocker on Library files)
 #Files still not put in ~/Library for compatibility issues
