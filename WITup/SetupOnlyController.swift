@@ -43,7 +43,7 @@ class SetupOnlyController: NSViewController {
         
         // Run script
         var command = String()
-        command = path + " " + firstNameBox.stringValue + " " + lastNameBox.stringValue + " '" + "fake unused source" + "' " + "n" + " " + launch
+        command = path + " '" + firstNameBox.stringValue + "' '" + lastNameBox.stringValue + "' '" + "fake unused source" + "' " + "n" + " " + launch
         warningLabel.stringValue = "Please remember to enable filevault permissions for new user"
         
         var error: NSDictionary?

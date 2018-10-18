@@ -96,7 +96,7 @@ class TransferController: NSViewController {
         var command = String()
         let oldSource = sourceField.stringValue
         //let newSource = oldSource.replacingOccurrences(of: " ", with: "\\ ", options: .literal, range: nil)
-        command = path + " " + firstName.stringValue + " " + lastName.stringValue + " '" + oldSource + "' " + lib + " " + launch
+        command = path + " '" + firstName.stringValue + "' '" + lastName.stringValue + "' '" + oldSource + "' " + lib + " " + launch
         runLabel.stringValue = "Please remember to enable filevault permissions for new user"
         
         var error: NSDictionary?
