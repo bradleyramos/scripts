@@ -2,7 +2,7 @@
 //  TransferController.swift
 //  WITup
 //
-//  Created by Bradley Ramos on 9/20/18.
+//  Created by Bradley Ramos and John Wu on 9/20/18.
 //  Copyright © 2018 Weinberg IT. All rights reserved.
 //
 
@@ -25,6 +25,8 @@ class TransferController: NSViewController {
         // Do view setup here.
     }
     @IBAction func selectDirectory(_ sender: NSButton) {
+        
+        
         
         let dialog = NSOpenPanel();
         
@@ -62,13 +64,24 @@ class TransferController: NSViewController {
     }
     
     @IBAction func runBash(_ sender: Any) {
-        var fileURL = FileManager.default.homeDirectoryForCurrentUser;
-        //create path to simple_setup.sh
-        fileURL.appendPathComponent("Downloads");
-        fileURL.appendPathComponent("scripts-master");
-        fileURL.appendPathComponent("gui_setup")
-        fileURL.appendPathExtension("sh")
-        let path = fileURL.path
+        
+        // Finds scripts location by moving back twich from .app bundle location.
+        var bundPath = Bundle.main.bundleURL
+        bundPath = bundPath.deletingLastPathComponent()
+        bundPath = bundPath.deletingLastPathComponent()
+        
+        // Creates actual location of base script
+        let scriptName = "gui_setup.sh"
+        let path = bundPath.path + "/" + scriptName
+        
+        
+//        var fileURL = FileManager.default.homeDirectoryForCurrentUser;
+//        //create path to simple_setup.sh
+//        fileURL.appendPathComponent("Downloads");
+//        fileURL.appendPathComponent("scripts-master");
+//        fileURL.appendPathComponent("gui_setup")
+//        fileURL.appendPathExtension("sh")
+//        let path = fileURL.path
         
         // checkboxes
         var lib = String()
@@ -96,7 +109,7 @@ class TransferController: NSViewController {
         var command = String()
         let oldSource = sourceField.stringValue
         //let newSource = oldSource.replacingOccurrences(of: " ", with: "\\ ", options: .literal, range: nil)
-        command = path + " '" + firstName.stringValue + "' '" + lastName.stringValue + "' '" + oldSource + "' " + lib + " " + launch
+        command = "'" + path + "' '" + firstName.stringValue + "' '" + lastName.stringValue + "' '" + oldSource + "' " + lib + " " + launch
         runLabel.stringValue = "Please remember to enable filevault permissions for new user"
         
         var error: NSDictionary?

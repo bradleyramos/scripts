@@ -2,7 +2,7 @@
 //  SetupOnlyController.swift
 //  WITup
 //
-//  Created by Bradley Ramos on 9/27/18.
+//  Created by Bradley Ramos and John Wu on 9/27/18.
 //  Copyright © 2018 Weinberg IT. All rights reserved.
 //
 
@@ -21,13 +21,24 @@ class SetupOnlyController: NSViewController {
     }
     
     @IBAction func runButtonClicked(_ sender: Any) {
-        var fileURL = FileManager.default.homeDirectoryForCurrentUser
-        //create path to gui_setup_notransfer.sh
-        fileURL.appendPathComponent("Downloads");
-        fileURL.appendPathComponent("scripts-master");
-        fileURL.appendPathComponent("gui_setup_notransfer")
-        fileURL.appendPathExtension("sh")
-        let path = fileURL.path
+        
+        // Finds scripts location by moving back twich from .app bundle location.
+        var bundPath = Bundle.main.bundleURL
+        bundPath = bundPath.deletingLastPathComponent()
+        bundPath = bundPath.deletingLastPathComponent()
+        
+        // Creates actual location of base script
+        let scriptName = "gui_setup_notransfer.sh"
+        let path = bundPath.path + "/" + scriptName
+        
+        
+//        var fileURL = FileManager.default.homeDirectoryForCurrentUser
+//        //create path to gui_setup_notransfer.sh
+//        fileURL.appendPathComponent("Downloads");
+//        fileURL.appendPathComponent("scripts-master");
+//        fileURL.appendPathComponent("gui_setup_notransfer")
+//        fileURL.appendPathExtension("sh")
+//        let path = fileURL.path
         
         // checkboxes
         var launch = String()
@@ -40,15 +51,17 @@ class SetupOnlyController: NSViewController {
             print("mixed")
         default: break
         }
-        
+
+        print(path);
+
         // Run script
         var command = String()
-        command = path + " '" + firstNameBox.stringValue + "' '" + lastNameBox.stringValue + "' '" + "fake unused source" + "' " + "n" + " " + launch
+        command = "'" + path + "' '" + firstNameBox.stringValue + "' '" + lastNameBox.stringValue + "' '" + "fake unused source" + "' " + "n" + " " + launch
         warningLabel.stringValue = "Please remember to enable filevault permissions for new user"
-        
+
         var error: NSDictionary?
         let scommand = "do shell script \"sudo sh " + command + "\" with administrator " + "privileges"
-        
+
         NSAppleScript(source: scommand)!.executeAndReturnError(&error)
         print("error2: \(String(describing: error))")
     }
