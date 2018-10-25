@@ -1,3 +1,8 @@
+Run GUI straight from download with:
+  Use Safari to download, open Terminal and run:
+  xattr -r -c ~/Downloads/scripts-master
+  open ~/Downloads/scripts-master/Witupp\ app/WITup.app
+
 Version 0.1:
   Successfully makes one user account, transfers data to said account, and creates a printer
   with driver preloaded into witmac.
