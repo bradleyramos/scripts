@@ -14,4 +14,4 @@ fi
 
 for i in {1..255}; do
   nslookup "$subnet.$i"
-done | grep 'name = ' | awk -F '[.=]' '{print $1 $7}'
+done | grep 'name = ' | awk -F '[.=]' '{printf "%s: %s.%s.%s.%s \n",$1,$7,$8,$9,$10}'
