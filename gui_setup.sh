@@ -81,13 +81,13 @@ done
 uid="$n"
 
 # echo "$firstName $lastName" "$username" "$uid" "change,me"
-sh /Users/admin/Downloads/scripts-master/new_user_q.sh "$firstName $lastName" "$username" "$uid" "change,me"
+sh new_user_q.sh "$firstName $lastName" "$username" "$uid" "change,me"
 
 echo ${RED}"User account created----------------------------------------"${RESET}
 printf \\a
 
 
-sh /Users/admin/Downloads/scripts-master/transfer.sh /Users/"$username" "$username" "$fileLoc" "$4"
+sh transfer.sh /Users/"$username" "$username" "$fileLoc" "$4"
 echo ${RED}"Data Transferred---------------------------------------------"${RESET}
 say -v Daniel Done
 i=1
@@ -99,5 +99,5 @@ else
 fi
 
 if [[ "$noyes" == "y" ]]; then
-  sh /Users/admin/Downloads/scripts-master/launch_update.sh
+  sh launch_update.sh
 fi
