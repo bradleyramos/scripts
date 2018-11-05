@@ -115,6 +115,4 @@ class TransferOnlyController: NSViewController {
         
         print("error2: \(String(describing: error))")
     }
-    
-    
 }

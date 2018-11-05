@@ -3,6 +3,7 @@
 # Does NOT add user to filevault.
 # Usage: sudo sh gui_setup.sh [firstName] [lastName] [source] [lib_switch] [launch_switch]
 
+scriptsPath="$6"
 
 RED='\033[0;31m'
 RESET='\033[0m'
@@ -81,7 +82,7 @@ done
 uid="$n"
 
 # echo "$firstName $lastName" "$username" "$uid" "change,me"
-sh /Users/admin/Downloads/scripts-master/new_user_q.sh "$firstName $lastName" "$username" "$uid" "change,me"
+sh "$scriptsPath"new_user_q.sh "$firstName $lastName" "$username" "$uid" "change,me" "n"
 
 echo ${RED}"User account created----------------------------------------"${RESET}
 printf \\a
@@ -99,5 +100,5 @@ else
 fi
 
 if [[ "$noyes" == "y" ]]; then
-  sh /Users/admin/Downloads/scripts-master/launch_update.sh
+  sh "$scriptsPath"launch_update.sh
 fi

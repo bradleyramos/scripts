@@ -71,7 +71,8 @@ class TransferController: NSViewController {
         bundPath = bundPath.deletingLastPathComponent()
         
         // Creates actual location of base script
-        let scriptName = "gui_setup.sh"
+        let scriptName = "simple_setup.sh"
+        let scriptPath = bundPath.path + "/"
         let path = bundPath.path + "/" + scriptName
         
         
@@ -109,7 +110,7 @@ class TransferController: NSViewController {
         var command = String()
         let oldSource = sourceField.stringValue
         //let newSource = oldSource.replacingOccurrences(of: " ", with: "\\ ", options: .literal, range: nil)
-        command = "'" + path + "' '" + firstName.stringValue + "' '" + lastName.stringValue + "' '" + oldSource + "' " + lib + " " + launch
+        command = "'" + path + "' '" + firstName.stringValue + "' '" + lastName.stringValue + "' '" + oldSource + "' " + lib + " " + launch + " y n '" + scriptPath + "'"
         runLabel.stringValue = "Please remember to enable filevault permissions for new user"
         
         var error: NSDictionary?

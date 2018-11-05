@@ -1,8 +1,11 @@
 #!/bin/bash
 # Uses arguments to launch setup scripts, if arguments are missing, simple_setup is launched
 # Does NOT add user to filevault.
-# Usage: sudo sh gui_setup.sh [firstName] [lastName] [source] [lib_switch] [launch_switch]
+# Usage: sudo sh gui_setup.sh [firstName] [lastName] [source] [lib_switch] [launch_switch] [scripts_path]
 
+
+
+scriptsPath="$6"
 
 RED='\033[0;31m'
 RESET='\033[0m'
@@ -81,13 +84,13 @@ done
 uid="$n"
 
 # echo "$firstName $lastName" "$username" "$uid" "change,me"
-sh /Users/admin/Downloads/scripts-master/new_user_q.sh "$firstName $lastName" "$username" "$uid" "change,me"
+sh "$scriptsPath"new_user_q.sh "$firstName $lastName" "$username" "$uid" "change,me"
 
 echo ${RED}"User account created----------------------------------------"${RESET}
 printf \\a
 
 
-sh /Users/admin/Downloads/scripts-master/transfer.sh /Users/"$username" "$username" "$fileLoc" "$4"
+sh "$scriptsPath"transfer.sh /Users/"$username" "$username" "$fileLoc" "$4"
 echo ${RED}"Data Transferred---------------------------------------------"${RESET}
 say -v Daniel Done
 i=1
@@ -99,5 +102,5 @@ else
 fi
 
 if [[ "$noyes" == "y" ]]; then
-  sh /Users/admin/Downloads/scripts-master/launch_update.sh
+  sh "$scriptsPath"launch_update.sh
 fi
