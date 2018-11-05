@@ -1,5 +1,6 @@
 #!/bin/bash
 #Usage: sudo sh new_user_q.sh
+#Deprecated, use new_user.sh instead
 #Creates a new user, prompted on command line.
 #DOES NOT allow user to unlock computer by filevault
 #Alternate usage: sudo sh new_user_q.sh [fullname] [username] [uid] [password]
