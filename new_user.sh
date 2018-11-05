@@ -1,7 +1,7 @@
 #!/bin/bash
 #Usage: sudo sh new_user.sh
 #Creates a new user, prompted on command line.
-#Alternate usage: sudo sh new_user.sh [fullname] [username] [uid] [password]
+#Alternate usage: sudo sh new_user.sh [fullname] [username] [uid] [password] [encrypt_user (y/n)]
 
 #The credentials at the very end it wants are the admin password and the user
 #password set just prior.
@@ -18,7 +18,7 @@ for listuid in $(dscl . -list /Users UniqueID | awk '{print $2}'); do
 	# echo "$listuid"
 done
 
-if [ -z "$1" ]; then
+if [ -z "$4" ]; then
 	read -p "$(echo "Define a full name, can be pretty long (30 characters) \nType the user's full name, (e.g. John Wu): ")" fullname
 	read -p "$(echo "Define a Username: No special characters or spaces alowed.\nType the username (e.g. wurules): ")" username
 	read -p "$(echo "Select a user ID. This is a UNIQUE number between 503 and 1000\nMac sets the first account (admin) 501, second (jamfadmin) 502, etc.$RED \nI recommend that you pick $n $RESET\nType the user ID (Unique, 503-1000): ")" uid
@@ -47,9 +47,19 @@ dscl . -passwd /Users/$username $changeme
 #Elevate to admin
 dscl . -append /Groups/admin GroupMembership $username
 
-read -p "$(echo "Allow unlock by Filevault?\nYou will enter admin username (except on older models), admin password, then change,me. (y/n): ")" neyo
-#Allows user to unlock by filevault, needs admin password
-fdesetup add -usertoadd $username
+
+if [[ -z "$5" ]]; then
+	read -p "$(echo "Allow unlock by Filevault?\nYou will enter admin username (except on older models), admin password, then change,me. (y/n): ")" neyo
+	#Allows user to unlock by filevault, needs admin password
+	fdesetup add -usertoadd $username
+else
+  noyes=$5
+	# Note, you should probably never use this since the only point of this flag
+	# is to remove necessity of input. (i.e. always use "n")
+	if [[ "$noyes" == "y" ]]; then
+	  fdesetup add -usertoadd $username
+	fi
+fi
 
 #Final output for setup.sh
 echo "$username"
