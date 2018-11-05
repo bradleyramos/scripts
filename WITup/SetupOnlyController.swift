@@ -28,7 +28,8 @@ class SetupOnlyController: NSViewController {
         bundPath = bundPath.deletingLastPathComponent()
         
         // Creates actual location of base script
-        let scriptName = "gui_setup_notransfer.sh"
+        let scriptName = "simple_setup.sh"
+        let scriptPath = bundPath.path + "/"
         let path = bundPath.path + "/" + scriptName
         
         
@@ -52,11 +53,9 @@ class SetupOnlyController: NSViewController {
         default: break
         }
 
-        print(path);
-
         // Run script
         var command = String()
-        command = "'" + path + "' '" + firstNameBox.stringValue + "' '" + lastNameBox.stringValue + "' '" + "fake unused source" + "' " + "n" + " " + launch
+        command = "'" + path + "' '" + firstNameBox.stringValue + "' '" + lastNameBox.stringValue + "' 'nosource' n " + launch + " n n '" + scriptPath + "'"
         warningLabel.stringValue = "Please remember to enable filevault permissions for new user"
 
         var error: NSDictionary?
