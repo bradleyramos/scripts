@@ -4,7 +4,7 @@
 #Helpful to determine why someone is complaining about too much disk usage
 #Stores data to /space_usage.txt (Top Level). Date in YYYY-MM-DD format
 #Stupidly, this only works for Macs
-#Don't necessarily have to run as sudo, but if you do then you'll get Permission
+#Don't necessarily have to run as sudo, but if you do not then you'll get Permission
 #Denied errors
 
 today=$(date +%F)
