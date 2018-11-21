@@ -62,12 +62,12 @@ fi
 tdate=$(date +%F)
 
 mkdir -m777 -p "$destination"
-echo "Data Transfer Started" > "$destination/WITtransferLog_$tdate"
+echo "Data Transfer Started" > "$destination/WITtransferlog_$tdate"
 
 for dir in "$fileLoc/"*; do
   if [[ "$dir" != *"/Library" ]] && [[ "$dir" != *"/Box Sync" ]] && [[ "$dir" != *"/Dropbox" ]]; then
    echo $dir
-   cp -Rpv "$dir" "$destination" >> "$destination/WITtransferLog_$tdate"
+   cp -Rpv "$dir" "$destination" >> "$destination/WITtransferlog_$tdate"
  fi
 done
 
@@ -77,23 +77,25 @@ if [ -d "$fileLoc/Library" ]; then
 fi
 
 echo "Transferring internet profiles... "
+echo "Transferring internet profiles... " >> "$destination/WITtransferlog_$tdate"
 if [ -d "$fileLoc/Library/Safari" ]; then
-  cp -Rpv "$fileLoc/Library/Safari" "$destination/Library" >> "$destination/WITtransferLog_$tdate"
+  cp -Rpv "$fileLoc/Library/Safari" "$destination/Library" >> "$destination/WITtransferlog_$tdate"
 fi
 
 if [ -d "$fileLoc/Library/Application Support/Google" ]; then
-  cp -Rpv "$fileLoc/Library/Application Support/Google" "$destination/Library/Application Support" >> "$destination/WITtransferLog_$tdate"
+  cp -Rpv "$fileLoc/Library/Application Support/Google" "$destination/Library/Application Support" >> "$destination/WITtransferlog_$tdate"
 fi
 
 if [ -d "$fileLoc/Library/Application Support/Firefox" ]; then
-  cp -Rpv "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support" >> "$destination/WITtransferLog_$tdate"
+  cp -Rpv "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support" >> "$destination/WITtransferlog_$tdate"
 fi
 
 #-R handles symbolic and hard links properly (Old blocker on Library files)
 #Files still not put in ~/Library for compatibility issues
 if [[ "$yoes" == "y" ]]; then
   echo "Moving Library folder to transfer_library"
-  cp -Rpv "$fileLoc/Library" "$destination/transfer_library" >> "$destination/WITtransferLog_$tdate"
+  echo "Moving Library folder to transfer_library" >> "$destination/WITtransferlog_$tdate"
+  cp -Rpv "$fileLoc/Library" "$destination/transfer_library" >> "$destination/WITtransferlog_$tdate"
   chflags -R nohidden "$destination/transfer_library"
   chmod -R 777 "$destination/transfer_library"
 fi
