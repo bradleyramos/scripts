@@ -1,1 +1,2 @@
 Edit crontab with env EDITOR=emacs crontab -e
+These files are for reference purposes only. For actual code, see witmac.
