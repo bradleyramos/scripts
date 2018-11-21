@@ -59,13 +59,15 @@ else
   yoes=$4
 fi
 
+tdate=$(date +%F)
 
 mkdir -m777 -p "$destination"
+echo "Data Transfer Started" > "$destination/WITtransferLog_$tdate"
 
 for dir in "$fileLoc/"*; do
   if [[ "$dir" != *"/Library" ]] && [[ "$dir" != *"/Box Sync" ]] && [[ "$dir" != *"/Dropbox" ]]; then
    echo $dir
-   cp -Rp "$dir" "$destination"
+   cp -Rpv "$dir" "$destination" >> "$destination/WITtransferLog_$tdate"
  fi
 done
 
@@ -76,22 +78,22 @@ fi
 
 echo "Transferring internet profiles... "
 if [ -d "$fileLoc/Library/Safari" ]; then
-  cp -Rp "$fileLoc/Library/Safari" "$destination/Library"
+  cp -Rpv "$fileLoc/Library/Safari" "$destination/Library" >> "$destination/WITtransferLog_$tdate"
 fi
 
 if [ -d "$fileLoc/Library/Application Support/Google" ]; then
-  cp -Rp "$fileLoc/Library/Application Support/Google" "$destination/Library/Application Support"
+  cp -Rpv "$fileLoc/Library/Application Support/Google" "$destination/Library/Application Support" >> "$destination/WITtransferLog_$tdate"
 fi
 
 if [ -d "$fileLoc/Library/Application Support/Firefox" ]; then
-  cp -Rp "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support"
+  cp -Rpv "$fileLoc/Library/Application Support/Firefox" "$destination/Library/Application Support" >> "$destination/WITtransferLog_$tdate"
 fi
 
 #-R handles symbolic and hard links properly (Old blocker on Library files)
 #Files still not put in ~/Library for compatibility issues
 if [[ "$yoes" == "y" ]]; then
   echo "Moving Library folder to transfer_library"
-  cp -Rp "$fileLoc/Library" "$destination/transfer_library"
+  cp -Rpv "$fileLoc/Library" "$destination/transfer_library" >> "$destination/WITtransferLog_$tdate"
   chflags -R nohidden "$destination/transfer_library"
   chmod -R 777 "$destination/transfer_library"
 fi
