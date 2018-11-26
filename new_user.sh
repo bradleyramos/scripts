@@ -61,5 +61,14 @@ else
 	fi
 fi
 
+tdate=$(date +%F)
+
+echo "Username: $username" > "/Users/$username/WITnewuserlog_$tdate"
+echo "Full Name: $fullname" >> "/Users/$username/WITnewuserlog_$tdate"
+echo "Password: $changeme" >> "/Users/$username/WITnewuserlog_$tdate"
+echo "UID: $uid" >> "/Users/$username/WITnewuserlog_$tdate"
+echo "GID: 20" >> "/Users/$username/WITnewuserlog_$tdate"
+
+
 #Final output for setup.sh
 echo "$username"
