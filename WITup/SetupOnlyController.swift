@@ -58,7 +58,7 @@ class SetupOnlyController: NSViewController {
         // Run script
         var command = String()
         let capName = lastNameBox.stringValue
-        let username = capName.lowercased()
+        let username = capName.lowercased().replacingOccurrences(of: " ", with: "_")
         command = "'" + path + "' '" + firstNameBox.stringValue + "' '" + lastNameBox.stringValue + "' 'nosource' n " + launch + " n n '" + scriptPath + "'"
 
         var error: NSDictionary?

@@ -765,15 +765,6 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wJn-oG-4JI">
-                                <rect key="frame" x="18" y="12" width="344" height="39"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" selectable="YES" alignment="center" id="4td-he-S1P">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8hc-HJ-38o">
                                 <rect key="frame" x="46" y="64" width="359" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -835,18 +826,28 @@
                                     </allowedInputSourceLocales>
                                 </secureTextFieldCell>
                             </secureTextField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fMT-n2-NcA">
+                                <rect key="frame" x="58" y="10" width="342" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" id="oJ0-On-teS">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="aPass" destination="KHT-UT-jmr" id="OvD-D9-SiU"/>
                         <outlet property="firstName" destination="hOB-Fh-bPL" id="F88-8r-uZh"/>
                         <outlet property="lastName" destination="4y3-4z-Qye" id="RcN-G8-PBt"/>
                         <outlet property="launchUpdates" destination="9zm-3W-xga" id="7ux-IJ-sYD"/>
                         <outlet property="libraryFiles" destination="8hc-HJ-38o" id="qA4-Yh-hpu"/>
                         <outlet property="runBashCommands" destination="Trm-br-lme" id="M7d-Qc-oBj"/>
                         <outlet property="runCommands" destination="Trm-br-lme" id="Ml8-hi-XRw"/>
-                        <outlet property="runLabel" destination="wJn-oG-4JI" id="wAX-WQ-qGw"/>
                         <outlet property="sourceButton" destination="HW5-w2-0DK" id="Suw-6b-ZbP"/>
                         <outlet property="sourceField" destination="FSO-bh-Bgo" id="63g-eg-vhh"/>
+                        <outlet property="warningLabel" destination="fMT-n2-NcA" id="5Hk-OZ-V78"/>
                     </connections>
                 </viewController>
                 <customObject id="Vbi-l3-a8m" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

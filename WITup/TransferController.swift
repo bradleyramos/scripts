@@ -17,7 +17,8 @@ class TransferController: NSViewController {
     @IBOutlet weak var libraryFiles: NSButton!
     @IBOutlet weak var launchUpdates: NSButton!
     @IBOutlet weak var runCommands: NSButton!
-    @IBOutlet weak var runLabel: NSTextField!
+    @IBOutlet weak var aPass: NSSecureTextField!
+    @IBOutlet weak var warningLabel: NSTextField!
     
     
     override func viewDidLoad() {
@@ -107,11 +108,13 @@ class TransferController: NSViewController {
         }
         
         // Run script
+        warningLabel.stringValue = "Scripts are Currently Running. Please Wait."
         var command = String()
+        let capName = lastName.stringValue
+        let username = capName.lowercased().replacingOccurrences(of: " ", with: "_")
         let oldSource = sourceField.stringValue
         //let newSource = oldSource.replacingOccurrences(of: " ", with: "\\ ", options: .literal, range: nil)
         command = "'" + path + "' '" + firstName.stringValue + "' '" + lastName.stringValue + "' '" + oldSource + "' " + lib + " " + launch + " y n '" + scriptPath + "'"
-        runLabel.stringValue = "Please remember to enable filevault permissions for new user"
         
         var error: NSDictionary?
         
@@ -121,9 +124,23 @@ class TransferController: NSViewController {
         
         //NSAppleScript(source: "set pathWithSpaces to \"" + command + "\"\ndo shell script & quoted form of pathWithSpaces with administrator " +
         //    "privileges")!.executeAndReturnError(&error)
-        
-        
         print("error2: \(String(describing: error))")
+        
+        // Reset path for filevault setup
+        let FVName = "filevault_setup.sh"
+        let FVPath = bundPath.path + "/" + FVName
+        // Run script
+        var FVcommand = String()
+        FVcommand = "'" + FVPath + "' '" + username + "' '" + aPass.stringValue + "'"
+        
+        var FVerror: NSDictionary?
+        let FVscommand = "do shell script \"sudo sh " + FVcommand + "\" with administrator " + "privileges"
+        
+        NSAppleScript(source: FVscommand)!.executeAndReturnError(&FVerror)
+        print("error2: \(String(describing: FVerror))")
+        warningLabel.stringValue = "Thanks for using WITup!"
+        
+        
     }
 
 }
