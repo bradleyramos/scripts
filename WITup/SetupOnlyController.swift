@@ -14,6 +14,7 @@ class SetupOnlyController: NSViewController {
     @IBOutlet weak var lastNameBox: NSTextField!
     @IBOutlet weak var updates: NSButton!
     @IBOutlet weak var warningLabel: NSTextField!
+    @IBOutlet weak var aPass: NSSecureTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,24 +45,41 @@ class SetupOnlyController: NSViewController {
         // checkboxes
         var launch = String()
         switch updates.state {
-        case .on:
-            launch = "y"
-        case .off:
-            launch = "n"
-        case .mixed:
-            print("mixed")
-        default: break
+            case .on:
+                launch = "y"
+            case .off:
+                launch = "n"
+            case .mixed:
+                print("mixed")
+            default: break
         }
-
+        
+        warningLabel.stringValue = "Script is running. Please Wait."
         // Run script
         var command = String()
+        let capName = lastNameBox.stringValue
+        let username = capName.lowercased()
         command = "'" + path + "' '" + firstNameBox.stringValue + "' '" + lastNameBox.stringValue + "' 'nosource' n " + launch + " n n '" + scriptPath + "'"
-        warningLabel.stringValue = "Please remember to enable filevault permissions for new user"
 
         var error: NSDictionary?
         let scommand = "do shell script \"sudo sh " + command + "\" with administrator " + "privileges"
 
         NSAppleScript(source: scommand)!.executeAndReturnError(&error)
-        print("error2: \(String(describing: error))")
+        print("error1: \(String(describing: error))")
+        
+        // Reset path for filevault setup
+        let FVName = "filevault_setup.sh"
+        bundPath = bundPath.deletingLastPathComponent()
+        let FVPath = bundPath.path + "/" + FVName
+        // Run script
+        var FVcommand = String()
+        FVcommand = "'" + FVPath + "' '" + username + "' '" + aPass.stringValue + "'"
+        
+        var FVerror: NSDictionary?
+        let FVscommand = "do shell script \"sudo sh " + FVcommand + "\" with administrator " + "privileges"
+        
+        NSAppleScript(source: FVscommand)!.executeAndReturnError(&FVerror)
+        print("error2: \(String(describing: FVerror))")
+        warningLabel.stringValue = "Script has completed running."
     }
 }
