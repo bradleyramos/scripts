@@ -69,7 +69,6 @@ class SetupOnlyController: NSViewController {
         
         // Reset path for filevault setup
         let FVName = "filevault_setup.sh"
-        bundPath = bundPath.deletingLastPathComponent()
         let FVPath = bundPath.path + "/" + FVName
         // Run script
         var FVcommand = String()
